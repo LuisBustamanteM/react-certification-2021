@@ -1,0 +1,17 @@
+import styled from 'styled-components';
+
+
+export const ToggleContainer = styled.div`
+    width: 100%;
+    `;
+
+export const Switch = styled.label`
+  font-size: 1.8em;
+  margin-right: 0.8em;
+  position: relative;
+  top: 9px;
+;`
+
+export const Mode =  styled.span`
+    color: white;
+`;

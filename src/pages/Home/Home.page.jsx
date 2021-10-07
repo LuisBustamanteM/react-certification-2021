@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 
+import Navbar from  '../../components/Navbar';
+
 function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
@@ -17,7 +19,8 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
+      <Navbar/>
+      <h1>testing</h1>
       {authenticated ? (
         <>
           <h2>Good to have you back</h2>
