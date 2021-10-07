@@ -40,8 +40,9 @@ const StyledNavbar = styled(NavbarComponent)`
     justify-content: flex-start;
     position: relative;
     align-items: center;
-    padding: 0 10px;
+    padding: 10px 24px 0 24px;
     background: #1c5476;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
 `;
 
 export default StyledNavbar;

@@ -23,7 +23,8 @@ const StyledSearchBar = styled(SearchBarComponent)`
     margin: 0;
     color: black;
     display: flex;
-    max-height: 100%
+    max-height: 100%;
+    height: 35px;
 `;
 
 export default StyledSearchBar;

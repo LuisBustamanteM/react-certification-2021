@@ -10,6 +10,9 @@ export const SearchBarContainer = styled.div`
   max-height:100%
   width: 100%;
   padding: 8px 10px;
+  @media (max-width: 600px) {
+    width:340px;
+  }
   ;`
 
 export const IconContainer = styled.div`
@@ -23,6 +26,5 @@ export const InputText = styled.input`
   font-weight: bold;
   border: none;
   maxHeight:100%;
-  width: 200px;
   background: none;
   ;`

@@ -1,12 +1,13 @@
 # TODO 
 [x] Install and read about styled-components
 [] Create a header, like the mock youtube app
-    - [] Burger Menu 
-    - Search bar
-    - Toggle dark mode 
-    - profile circle (install font awesome for icons)
+    - [x] Burger Menu 
+    - [x] Search bar
+    - [x] Toggle dark mode 
+    - [x] profile circle (install font awesome for icons)
 [] Content
     - Home View
+        - 
     - Display items from a mock file 
         - Main Image 
         - Title 

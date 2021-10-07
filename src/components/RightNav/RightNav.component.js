@@ -17,9 +17,12 @@ const StyledRightNav = styled(RightNavComponent)`
     margin: 0;
     color: white;
     display:flex;
-    flex: 1 1 0px;
     padding: 5px 0;
     float: right;
+    @media (max-width: 600px) {
+        display: none;
+    }
+
 `;
 
 export default StyledRightNav;

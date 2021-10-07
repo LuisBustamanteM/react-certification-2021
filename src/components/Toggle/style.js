@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const ToggleContainer = styled.div`
-    width: 100%;
+    margin-right: 1em;
     `;
 
 export const Switch = styled.label`

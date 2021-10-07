@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
 
 import Navbar from  '../../components/Navbar';
+import CardGrid from '../../components/CardGrid';
+import {Title} from './style';
 
 function HomePage() {
   const history = useHistory();
@@ -20,21 +21,9 @@ function HomePage() {
   return (
     <section className="homepage" ref={sectionRef}>
       <Navbar/>
-      <h1>testing</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
+
+      <Title>Welcome To The Challenge!</Title>
+      <CardGrid/>
     </section>
   );
 }
