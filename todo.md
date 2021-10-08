@@ -14,8 +14,9 @@
         - Description
         
     - Apply CSS to my components using styled-components
+[] Move styling to separate files 
+[] Create a global styling file & import to child style files
 [] Read and check about errors
-
 
 ## The challenge:
 

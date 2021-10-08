@@ -1,3 +1,4 @@
+import {colors} from '../../globalStyle';
 import styled from 'styled-components';
 
 export const VideoCardContainer = styled.div`
@@ -35,5 +36,5 @@ export const Title = styled.h2`
 
 export const Paragraph = styled.p`
     font-size: 0.8em;
-    color: #aaaaaa;
+    color: ${colors.dimText};
 `;

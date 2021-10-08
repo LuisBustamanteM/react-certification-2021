@@ -1,9 +1,10 @@
+import {colors} from '../../globalStyle';
 import styled from 'styled-components';
 
 
 export const ToggleContainer = styled.div`
     margin-right: 1em;
-    `;
+`;
 
 export const Switch = styled.label`
   font-size: 1.8em;
@@ -13,5 +14,5 @@ export const Switch = styled.label`
 ;`
 
 export const Mode =  styled.span`
-    color: white;
+    color: ${colors.backgroundWhite};
 `;
