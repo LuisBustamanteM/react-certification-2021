@@ -34,10 +34,3 @@ test('Link changes the class when hovered', () => {
     })
 
 });
-
-test ('Custom Test', () => {
-    let x = 10;
-    console.log(10);
-
-    expect(x).toEqual(10);
-});
