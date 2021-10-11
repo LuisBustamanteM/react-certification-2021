@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <CardGrid/> <CardGrid/> matches snapshot 1`] = `
+<div>
+  <div
+    class="sc-jSgvzq cErgQG"
+  >
+    <div
+      class="sc-gKseQn flKMzi"
+    >
+      No videos to display, Try Reloading.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing <CardGrid/> <CardGrid/> matches snapshot when receiving no response from the server 1`] = `
+<div>
+  <div
+    class="sc-jSgvzq cErgQG"
+  >
+    <div
+      class="sc-gKseQn flKMzi"
+    >
+      No videos to display, Try Reloading.
+    </div>
+  </div>
+</div>
+`;
