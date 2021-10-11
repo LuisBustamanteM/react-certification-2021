@@ -7,8 +7,7 @@ async function fetchApi(url){
         return data;
 
     } catch(e){
-        console.log(e);
-        return data;
+        throw new Error(`Failed fetching to url: ${url}`);
     }
 
 }

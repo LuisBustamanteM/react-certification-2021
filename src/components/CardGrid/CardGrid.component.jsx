@@ -1,21 +1,23 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import VideoCard from '../VideoCard';
-import {CardGrid } from './style';
+import {CardGrid, ErrorMessage } from './style';
 
 // import data from '../../MockData/videos.json'; // - For mock data
 import fetchApi from "../../utils/fetchApi";
 
-const VideoCardComponent = () => {
+const CardGridComponent = ({url = "http://localhost:8080/videos"}) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetchApi("http://localhost:8000/videos")
-            .then(data => setItems(data.items));
-    });
+        fetchApi(url)
+            .then((data) => setItems(data.items))
+            .catch(() => setItems([]));
+
+    }, []);
 
     return(
         <CardGrid>
-            { items && items.map( (item, idx) => (
+            { items.length ? items.map( (item, idx) => (
                     <VideoCard key={idx}
                                id={item.id.channelId}
                                defaultImage={item.snippet.thumbnails.default.url}
@@ -23,10 +25,11 @@ const VideoCardComponent = () => {
                                highImage={item.snippet.thumbnails.high.url}
                                title={item.snippet.title}
                                description={item.snippet.description}/>
-                )
-            )}
+                ))
+                : <ErrorMessage>No videos to display, Try Reloading.</ErrorMessage>
+            }
         </CardGrid>
     )
 }
 
-export default VideoCardComponent;
+export default CardGridComponent;

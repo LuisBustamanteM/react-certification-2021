@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BsToggle2Off } from 'react-icons/bs';
 import {ToggleContainer, Switch, Mode} from './style';
 

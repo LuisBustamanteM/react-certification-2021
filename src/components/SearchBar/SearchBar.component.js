@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
 
-const SearchBarComponent = ({className, props}) => {
+const SearchBarComponent = () => {
+
+    const [text, setText]  = useState("Wizeline");
+
     return(
         <SearchBar>
             <SearchBarContainer>
                 <IconContainer>
                     <FaSearch/>
                 </IconContainer>
-                <InputText type="text" placeholder={"Search..."} value={"Wizeline"} />
+                <InputText type="text" placeholder={"Search..."} value={text} onChange={(e) => setText(e.targetValue)} />
             </SearchBarContainer>
         </SearchBar>
     )

@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export const colors = {
     black: "rgba(0, 0, 0, 0.87)",
     backgroundWhite: "#fff",

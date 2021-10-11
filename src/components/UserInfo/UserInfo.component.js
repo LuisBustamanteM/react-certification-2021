@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { AiOutlineUser } from 'react-icons/ai';
 import {UserInfoContainer, UserInfoCircle} from './style';

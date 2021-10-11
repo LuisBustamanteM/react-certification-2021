@@ -20,3 +20,10 @@ export const CardGrid = styled.div`
         justify-content: center;
     }
 `;
+
+export const ErrorMessage = styled.div`
+  text-align: center;
+  font-size: 24px;
+  color: #965108;
+  width: 100%;
+`;
