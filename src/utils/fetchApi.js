@@ -1,5 +1,6 @@
 async function fetchApi(url){
     let data = [];
+    // wrapper function
     try{
         data = await fetch(url)
             .then(res => res.json());

@@ -9,12 +9,6 @@
   },
   "items": [
     {
-      "kind": "youtube#searchResult",
-      "etag": "_PVKwNJf_qw9nukFeRFOtQ837o0",
-      "id": {
-        "kind": "youtube#channel",
-        "channelId": "UCPGzT4wecuWM0BH9mPiulXg"
-      },
       "snippet": {
         "publishedAt": "2014-09-27T01:39:18Z",
         "channelId": "UCPGzT4wecuWM0BH9mPiulXg",
@@ -37,12 +31,6 @@
       }
     },
     {
-      "kind": "youtube#searchResult",
-      "etag": "erqeM78PZDWIBe8qOGHGM2WdSE8",
-      "id": {
-        "kind": "youtube#video",
-        "videoId": "nmXMgqjQzls"
-      },
       "snippet": {
         "publishedAt": "2019-09-30T23:54:32Z",
         "channelId": "UCPGzT4wecuWM0BH9mPiulXg",
