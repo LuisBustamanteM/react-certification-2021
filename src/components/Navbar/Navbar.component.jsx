@@ -5,11 +5,12 @@ import RightNavComponent from '../RightNav';
 
 import {NavBar} from './style';
 
-const NavbarComponent = ({className, props}) => {
+const NavbarComponent = ({query, setQuery}) => {
+
 
     return(
         <NavBar>
-            <LeftNavComponent/>
+            <LeftNavComponent query={query} setQuery={setQuery}/>
             <RightNavComponent/>
         </NavBar>
     )

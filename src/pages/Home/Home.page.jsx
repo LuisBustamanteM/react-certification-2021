@@ -11,22 +11,23 @@ function HomePage() {
   const sectionRef = useRef(null);
 
     const [items, setItems] = useState([]);
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
+        console.log("Query Params Changed", query)
         fetchApi("http://localhost:8080/videos")
             .then((data) => {
-                console.log("test");
                 setItems(data.items)
             })
             .catch(() => setItems([]));
 
 
-    }, [JSON.stringify(items)]);
+    }, [query]);
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <Navbar/>
-      <Title>Welcome To The Challenge!</Title>
+      <Navbar query={query} setQuery={setQuery}/>
+      <Title >Welcome To The Challenge!</Title>
       <CardGrid items={items}/>
     </section>
   );

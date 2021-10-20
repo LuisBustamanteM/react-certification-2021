@@ -56,7 +56,7 @@ exports[`Testing <Navbar/> <Navbar/> matches snapshot 1`] = `
             class="sc-jSgvzq hdkkNo"
             placeholder="Search..."
             type="text"
-            value="Wizeline"
+            value=""
           />
         </div>
       </div>
