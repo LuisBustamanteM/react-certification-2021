@@ -5,11 +5,11 @@ import SearchBarComponent from '../SearchBar';
 
 import {LeftNav} from './style';
 
-const LeftNavComponent = ({query, setQuery}) => {
+const LeftNavComponent = ({query, setQuery, history}) => {
     return (
         <LeftNav>
             <BurgerMenuComponent/>
-            <SearchBarComponent query={query} setQuery={setQuery}/>
+            <SearchBarComponent query={query} setQuery={setQuery} history={history}/>
         </LeftNav>
     )
 }

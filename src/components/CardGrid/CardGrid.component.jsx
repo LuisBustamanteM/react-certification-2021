@@ -7,8 +7,8 @@ const CardGridComponent = ({items = []}) => {
     return(
         <CardGrid>
             { items.length > 0 ? items.map( (item, idx) => (
-                    <VideoCard key={idx}
-                               id={item.id.channelId}
+                    <VideoCard key={item.id.videoId}
+                               id={item.id.videoId}
                                defaultImage={item.snippet.thumbnails.default.url}
                                mediumImage={item.snippet.thumbnails.medium.url}
                                highImage={item.snippet.thumbnails.high.url}

@@ -25,4 +25,4 @@ yarn-error.log*
 #Comments
 todo.md
 .env
-config.json
+src/config.json

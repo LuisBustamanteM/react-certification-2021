@@ -9,6 +9,9 @@ export const VideoCardContainer = styled.div`
     box-shadow: 0px 1px 1px black;
     overflow: hidden;
     margin: 9px;
+    a {
+      color: black
+    }
 `;
 
 export const Thumbnail = styled.div`

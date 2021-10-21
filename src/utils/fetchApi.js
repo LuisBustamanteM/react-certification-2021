@@ -1,9 +1,10 @@
 async function fetchApi(url){
     let data = [];
-    // wrapper function
     try{
         data = await fetch(url)
-            .then(res => res.json());
+            .then(res => {
+                return res.json()
+            });
 
         return data;
 

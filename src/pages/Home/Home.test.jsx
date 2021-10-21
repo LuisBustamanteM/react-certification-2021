@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import ReactDOM from  'react-dom';
+import React from 'react';
 
 import HomePage from './index';
 import CardGrid from "../../components/CardGrid";
@@ -14,7 +13,6 @@ const build = () => {
         container,
         debug,
         searchbar: () => getByRole(container, "textbox"),
-        submitButton: () => getByRole(container, "button", {name:"SEARCH"}),
         cardGrid: () => getByRole(container, "list") // TODO: Change to Ul
     }
 }
@@ -22,11 +20,8 @@ const build = () => {
 describe("Testing <HomePage/>", () => {
 
     it("Triggers useFetch hook", () => {
-        const {searchbar} = build();
-
+        const {searchbar, cardGrid} = build();
     })
-
-    // Test textbox
 
     // Test cardGrid
 
