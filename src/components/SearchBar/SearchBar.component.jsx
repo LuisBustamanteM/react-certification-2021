@@ -3,16 +3,15 @@ import { FaSearch } from 'react-icons/fa';
 
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
 
-const SearchBarComponent = ({setQuery, history}) => {
+const SearchBarComponent = ({setQuery, query, history}) => {
 
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState(query);
 
     const getQueryParams = ({key}) => {
         if(input !== "" && key === "Enter"){
             setQuery(input)
             history.push('/')
         }
-
     }
 
     return(

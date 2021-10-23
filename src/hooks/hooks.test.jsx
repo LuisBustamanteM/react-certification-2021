@@ -1,11 +1,8 @@
 import React from 'react'
 import { waitFor } from '@testing-library/react'
 import {renderHook, act } from '@testing-library/react-hooks'
-
-import {useFetch} from "./hooks";
+import {getUrl, useFetch} from "./hooks";
 import mockData from '../MockData/youtubeResult.json'
-import config from "../config.json";
-let env = config.currentEnv;
 
 // Mocking fetch manually
 // const unmockedFetch = global.fetch
@@ -28,55 +25,56 @@ const mockApi = jest
         Promise.resolve({json: () => Promise.resolve(mockData)})
     )
 
-describe("Testing Custom Hooks mocking fetch", () => {
 
-    it("Returns video data from a mock api", async() => {
+describe("Testing Custom Hooks mocking fetch", () => {
+    it("Returns videos data from a text search parameter", async() => {
+
         const type = "LIST"
+        const query = "Smash bros"
         const { result } = renderHook(() => useFetch(type))
-        let {baseUrl, part, keys, maxResults} = config.environments[env][type].api
 
         expect(result.current.videos).toHaveLength(0)
 
         await act(async () => {
             await waitFor(() => {
+                result.current.setId(query)
                 expect(result.current.videos).toHaveLength(mockData.items.length)
             })
         })
 
-        expect(mockApi).toHaveBeenCalledTimes(1)
-
-        expect(mockApi).toHaveBeenCalledWith(
-            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=${keys.youtubeAPI}&maxResults=20`
-        )
+        expect(mockApi).toHaveBeenCalled()
+        expect(mockApi).toHaveBeenCalledWith(getUrl(query, type))
     })
 
-    it("Returns video list data by returning a custom search parameter", async() => {
-        const type = "LIST"
+    it("Returns recommended videos data from a video id", async() => {
+        const type = "RECOMMENDED"
+        const id = "jPSjNbqUPtk"
         const { result } = renderHook(() => useFetch(type))
-        let {baseUrl, part, keys, maxResults} = config.environments[env][type].api
-        let sampleQuery = "Smash bros"
 
         await act(async () => {
             await waitFor(() => {
-                result.current.setText(sampleQuery)
-                expect(result.current.text).toBe(sampleQuery)
+                result.current.setId(id)
+                expect(result.current.id).toBe(id)
                 expect(result.current.videos).toHaveLength(mockData.items.length)
             })
         })
+
+        expect(mockApi).toHaveBeenCalledWith(getUrl(id, type))
     })
 
-    it("Returns array with single video data by returning a custom search parameter", async() => {
-        const type = "SINGLE"
+    it("Returns single video data from a video id", async() => {
+        const type = "RECOMMENDED"
+        const id = "jPSjNbqUPtk"
         const { result } = renderHook(() => useFetch(type))
-        let {baseUrl, part, keys, maxResults} = config.environments[env][type].api
-        let videoId = "hYrNGzi8o98"
 
         await act(async () => {
             await waitFor(() => {
-                result.current.setText(videoId)
-                expect(result.current.text).toBe(videoId)
+                result.current.setId(id)
+                expect(result.current.id).toBe(id)
                 expect(result.current.videos).toHaveLength(mockData.items.length)
             })
         })
+
+        expect(mockApi).toHaveBeenCalledWith(getUrl(id, type))
     })
 })

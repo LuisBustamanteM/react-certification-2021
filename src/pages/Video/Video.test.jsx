@@ -1,6 +1,7 @@
 import React from 'react'
-import VideoPage from './index'
 import { render, getByRole, getByTitle } from "@testing-library/react"
+import {createMemoryHistory} from 'history'
+import VideoPage from './index'
 
 const build = () => {
     const {container, debug} = render(<VideoPage/>)

@@ -17,21 +17,21 @@ export const VideoList = styled.ul`
   padding: 0;
 `
 
-export const VideoPreview = styled.li`
+export const Thumbnail = styled.li`
   color: black;
   list-style: none;
   display: flex;
   border-bottom: solid 1px black;
+  font-weight: 300;
+  flex-grow:1;
+  :hover {
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    transition: 0.2s;
+  }
   
-  a {
-      color: black;
-      list-style: none;
-      display: flex;
-      border-bottom: solid 1px black;
-      font-weight: 300;
-      flex-grow:1;
-      img {
-        margin-right: 10px
-      }
+  img{
+    margin-right: 15px;
+    height: 100px;
   }
 `

@@ -2,8 +2,6 @@ import React  from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
-import Navbar from "../Navbar/Navbar.component";
-import {useFetch} from "../../hooks/hooks";
 
 function App() {
 

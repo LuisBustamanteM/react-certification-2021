@@ -1,38 +1,39 @@
 import React, {useRef, useEffect} from 'react';
-import { withRouter } from 'react-router-dom';
 import Navbar from  '../../components/Navbar';
-import {useFetchSingleVideo, useFetch, useFetchRecommendedVideos} from "../../hooks/hooks";
+import {useFetch} from "../../hooks/hooks";
 import {useParams} from "react-router";
 import VideoContent from "../../components/VideoContent";
 import VideoList from "../../components/VideoList";
 import {VideoPageContainer} from './style'
-import LeftNavComponent from "../../components/LeftNav";
 
 function VideoPage(props) {
     const sectionRef = useRef(null);
-    const {setText} = useFetch()
-    const {setId, id, video} = useFetchSingleVideo()
-    const fetchRecommendedVideos = useFetchRecommendedVideos()
+    // const {setText} = useFetch()
+    // const {setId, id, video} = useFetchSingleVideo()
+    // const fetchRecommendedVideos = useFetchRecommendedVideos()
 
+    const singleVideo = useFetch("SINGLE")
+    const searchVideos = useFetch("LIST")
+    const recommendedVideos = useFetch("RECOMMENDED")
     const videoId = useParams().id
 
     useEffect(() => {
-        console.log("UseEffect: ", id)
+        console.log("UseEffect: ", videoId)
+        console.log(singleVideo.videos)
 
-        setId(videoId);
-        fetchRecommendedVideos.setId(videoId)
-
-    }, [id])
+        singleVideo.setId(videoId)
+        recommendedVideos.setId(videoId)
+    }, [])
 
     return (
-        <section className="videopage" ref={sectionRef}>
-            <Navbar setQuery={setText}  history={props.history}/>
-            {video && video.length > 0
+        <section ref={sectionRef}>
+            <Navbar setQuery={searchVideos.setId}  history={props.history}/>
+            {singleVideo.videos && singleVideo.videos.length > 0
                 ?  <VideoPageContainer title={"videoplayer"}>
-                        <VideoContent title={video && video[0].snippet.title}
-                                      description={video &&  video[0].snippet.title}
-                                      videoId={video && video[0].id.videoId} />
-                        <VideoList videos={fetchRecommendedVideos.videos}/>
+                        <VideoContent title={singleVideo.videos && singleVideo.videos[0].snippet.title}
+                                      description={singleVideo.videos &&  singleVideo.videos[0].snippet.title}
+                                      videoId={singleVideo.videos[0].id} />
+                        <VideoList videos={recommendedVideos.videos} setId={singleVideo.setId}/>
                   </VideoPageContainer>
                 : <div>Video not found </div>
             }
@@ -40,4 +41,4 @@ function VideoPage(props) {
     );
 }
 
-export default withRouter(VideoPage);
+export default VideoPage;

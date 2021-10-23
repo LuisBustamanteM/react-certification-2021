@@ -4,8 +4,6 @@ import HomePage from './index';
 import CardGrid from "../../components/CardGrid";
 import {fireEvent, render, getByRole} from "@testing-library/react";
 
-
-
 const build = () => {
     const { container, debug} = render(<HomePage/>)
 
@@ -21,6 +19,7 @@ describe("Testing <HomePage/>", () => {
 
     it("Triggers useFetch hook", () => {
         const {searchbar, cardGrid} = build();
+
     })
 
     // Test cardGrid
