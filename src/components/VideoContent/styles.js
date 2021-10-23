@@ -12,6 +12,8 @@ export const VideoContainer = styled.div`
     
   @media screen and (max-width: 1200px) {
     width: 100%;
+    height: 100%;
+    margin-bottom: 64px;
   }
   
 `

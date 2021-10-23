@@ -13,7 +13,7 @@ function VideoPage(props) {
     // const fetchRecommendedVideos = useFetchRecommendedVideos()
 
     const singleVideo = useFetch("SINGLE")
-    const searchVideos = useFetch("LIST")
+    //const searchVideos = useFetch("LIST")
     const recommendedVideos = useFetch("RECOMMENDED")
     const videoId = useParams().id
 
@@ -25,9 +25,10 @@ function VideoPage(props) {
         recommendedVideos.setId(videoId)
     }, [])
 
+    // <Navbar setQuery={searchVideos.setId}  history={props.history}/>
     return (
         <section ref={sectionRef}>
-            <Navbar setQuery={searchVideos.setId}  history={props.history}/>
+
             {singleVideo.videos && singleVideo.videos.length > 0
                 ?  <VideoPageContainer title={"videoplayer"}>
                         <VideoContent title={singleVideo.videos && singleVideo.videos[0].snippet.title}
