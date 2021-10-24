@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
 
 const SearchBarComponent = ({setQuery, query}) => {
 
-    const [input, setInput] = useState(query);
+    const [input, setInput] = useState(query || "");
     const history = useHistory();
 
     const getQueryParams = ({key}) => {

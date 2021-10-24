@@ -1,12 +1,20 @@
 import React from 'react'
 import SearchBar from './index'
-import {render, fireEvent, getByRole} from "@testing-library/react"
+import {render, fireEvent, getByRole, waitFor} from "@testing-library/react"
 import {useFetch} from '../../hooks/hooks'
 import {renderHook, act } from '@testing-library/react-hooks'
+import mockData from "../../MockData/youtubeResult.json";
+
+jest.mock('react-router-dom', () => ({
+    useHistory: () => ({
+        push: jest.fn(),
+    }),
+}));
 
 const build = async () => {
-    const {result} = renderHook(() => useFetch())
-    const {container, debug} = render(<SearchBar setQuery={result.current.setText}/>)
+    const type = "LIST"
+    const {result} = renderHook(() => useFetch(type))
+    const {container, debug} = render (<SearchBar setQuery={result.current.setId}/>)
 
     return {
         container,
@@ -21,12 +29,16 @@ describe("Testing SearchBar", ()  => {
         const {inputText, result} = await build()
         const defaultState = "Wizeliners";
 
-        act(() => {
-            fireEvent.change(inputText(), {target: {value: defaultState}})
-            fireEvent.keyPress(inputText(), {key:"Enter", code:13, charCode: 13})
+
+        await act(async () => {
+            await waitFor(() => {
+                fireEvent.change(inputText(), {target: {value: defaultState}})
+                fireEvent.keyPress(inputText(), {key:"Enter", code:13, charCode: 13})
+
+                expect(inputText()).toHaveValue(defaultState)
+                expect(result.current.id).toBe(defaultState)
+            })
         })
 
-        expect(inputText()).toHaveValue(defaultState)
-        expect(result.current.text).toBe(defaultState)
     })
 })

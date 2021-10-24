@@ -1,12 +1,9 @@
 import React from 'react'
 import {Thumbnail, VideoList, VideoListContainer} from "./style"
-import {Link } from 'react-router-dom'
 
 const VideoListComponent = ({videos, setId}) => {
-
     const updateId = (thumbnailId) => {
         setId(thumbnailId)
-        console.log({thumbnailId})
     }
 
     return(

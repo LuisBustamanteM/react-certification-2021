@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const NavBar = styled.div`
     margin: 0;
     text-align: left;
-    color: ${colors.black};
+    color: ${colors.dimBlack};
     display:inline-flex;
     display: -webkit-flex;
     flex-wrap: wrap;

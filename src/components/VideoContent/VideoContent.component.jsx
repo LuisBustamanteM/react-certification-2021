@@ -2,7 +2,6 @@ import React from 'react'
 import {VideoContainer} from './styles'
 
 const VideoContentComponent = ({title, description, videoId}) => {
-    console.log("RERENDER")
     return(
         <VideoContainer>
             <iframe id="player"

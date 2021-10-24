@@ -2,7 +2,7 @@ import {colors} from '../../globalStyle';
 import styled from 'styled-components';
 
 export const VideoContainer = styled.div`
-  color: black;
+  color: ${colors.dimBlack};
   width: 80%;
   height: 80vh;
   h2, p{

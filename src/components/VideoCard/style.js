@@ -1,7 +1,8 @@
 import {colors} from '../../globalStyle';
 import styled from 'styled-components';
 
-export const VideoCardContainer = styled.div`
+export const VideoCardContainer = styled.li`
+    list-style: none;
     width: 345px;
     height: 345px;
     border: solid 0.8px #ffff;

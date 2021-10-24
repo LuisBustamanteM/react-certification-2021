@@ -5,7 +5,7 @@ import config from '../config.json'
 const env = config.currentEnv
 const {baseUrl, key} = config.environments[env]
 
-export function getUrl (id, type) {
+export function getUrl (id = "", type) {
     const query = id.replace(" ", "%20")
     const urls =  {
         "SINGLE":`${baseUrl}/videos?part=snippet&id=${query}&key=${key}`,
@@ -21,11 +21,9 @@ export const useFetch = (urlType, query = "") => {
     const [videos, setVideos] = useState([])
 
     useEffect(() => {
-        console.log("URL From Fetch: ", getUrl(id, urlType))
         if (id !== ""){
             fetchApi(getUrl(id, urlType))
                 .then((data) => {
-                    console.log("data: ", data)
                     setVideos(data.items)
                 })
                 .catch((e) => {

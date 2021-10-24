@@ -1,23 +1,34 @@
-import React, {useEffect, useState} from 'react';
-import ReactDOM from  'react-dom';
+import React from 'react';
 
 import CardGrid from './index';
-import {render} from "@testing-library/react";
-import fetchApi from "../../utils/fetchApi";
+import {render, getAllByRole, getByRole } from "@testing-library/react";
+import mockData from "../../MockData/youtubeResult.json";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe("Testing <CardGrid/>", () => {
 
-    test("<CardGrid/> matches snapshot with items",  async () => {
-        let items = await fetchApi("http://localhost:8080/videos")
-                            .then(data => data.items);
+    test("displays a list of videoCard items on <CardGrid/>",  () => {
+        let items = mockData.items
 
-        const component = render (<CardGrid items={items}/>);
-        expect (component.container).toMatchSnapshot();
+        const component = render (
+            <Router>
+                <CardGrid items={items}/>
+            </Router>
+            );
+
+        const videoCards = component.getAllByRole("listitem")
+        expect(videoCards).toHaveLength(items.length)
     });
 
-    test("<CardGrid/> matches snapshot without items",  () => {
-        const component = render (<CardGrid />);
-        expect (component.container).toMatchSnapshot();
+    test("Displays error message when no items have been passed on <CardGrid/>",  () => {
+        const component = render (
+            <Router>
+                <CardGrid />
+            </Router>
+        );
+
+        const errorMessage = component.getByRole("heading", {level: 3})
+        expect(errorMessage).toHaveTextContent("No videos to display, Try Reloading.")
     });
 
 });

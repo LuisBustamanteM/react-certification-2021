@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardGrid = styled.div`
+export const CardGrid = styled.ul`
     padding: 20px;
     margin: 0px auto;
     justify-content: flex-start;
@@ -21,7 +21,7 @@ export const CardGrid = styled.div`
     }
 `;
 
-export const ErrorMessage = styled.div`
+export const ErrorMessage = styled.h3`
   text-align: center;
   font-size: 24px;
   color: #965108;

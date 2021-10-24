@@ -1,25 +1,18 @@
 import React from 'react'
-import { render, getByRole, getByTitle } from "@testing-library/react"
-import {createMemoryHistory} from 'history'
+import { render } from "@testing-library/react"
 import VideoPage from './index'
-
-const build = () => {
-    const {container, debug} = render(<VideoPage/>)
-
-    return {
-        searchbar: () => getByRole(container, "textbox"),
-        videoPlayer: () => getByTitle(container, "videoplayer"),
-        videoList: () => getByRole(container, "list")
-    }
-}
+import { BrowserRouter as Router } from 'react-router-dom';
 
 describe("Testing <VideoPage/>", () => {
+    it("Compares with a snapshot of <VideoPage/>", () => {
+        const component = render (
+            <Router>
+                <VideoPage/>
+            </Router>
+        );
 
-    it("Checks al child components are loaded", () => {
-        const {searchBar, videoPlayer, videoList} = build()
+        expect(component).toMatchSnapshot()
     })
 
-    it("Requests data from id", () => {
-        // RETURNS A single element
-    })
+
 })

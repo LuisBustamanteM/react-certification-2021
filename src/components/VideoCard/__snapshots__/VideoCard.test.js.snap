@@ -2,26 +2,30 @@
 
 exports[`<VideoCard/> matches snapshot 1`] = `
 <div>
-  <div
-    class="sc-bdfBQB hsGamh"
+  <li
+    class="sc-bdfBQB eBcqvF"
   >
-    <div
-      class="sc-gsTEea pvlbr"
-    />
-    <div
-      class="sc-dlfnuX kyDYvr"
+    <a
+      href="/video/undefined"
     >
-      <h2
-        class="sc-hKgJUU kIlOys"
+      <div
+        class="sc-gsTEea pvlbr"
+      />
+      <div
+        class="sc-dlfnuX kyDYvr"
       >
-        Testing title
-      </h2>
-      <p
-        class="sc-eCstlR dObQUk"
-      >
-        Lorem ipsum...
-      </p>
-    </div>
-  </div>
+        <h2
+          class="sc-hKgJUU kIlOys"
+        >
+          Testing title
+        </h2>
+        <p
+          class="sc-eCstlR dObQUk"
+        >
+          Lorem ipsum...
+        </p>
+      </div>
+    </a>
+  </li>
 </div>
 `;

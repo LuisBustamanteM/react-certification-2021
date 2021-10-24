@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import VideoCard from '../VideoCard';
 import {CardGrid, ErrorMessage } from './style';
 
