@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoCard/> matches snapshot 1`] = `
+<div>
+  <li
+    class="sc-bdfBQB eBcqvF"
+  >
+    <a
+      href="/video/undefined"
+    >
+      <div
+        class="sc-gsTEea pvlbr"
+      />
+      <div
+        class="sc-dlfnuX kyDYvr"
+      >
+        <h2
+          class="sc-hKgJUU kIlOys"
+        >
+          Testing title
+        </h2>
+        <p
+          class="sc-eCstlR dObQUk"
+        >
+          Lorem ipsum...
+        </p>
+      </div>
+    </a>
+  </li>
+</div>
+`;
