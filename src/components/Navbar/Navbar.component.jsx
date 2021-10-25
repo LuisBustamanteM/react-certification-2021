@@ -1,4 +1,4 @@
-import React from  'react';
+import React, {useContext} from  'react';
 
 import LeftNavComponent from '../LeftNav';
 import RightNavComponent from '../RightNav';
@@ -6,7 +6,6 @@ import RightNavComponent from '../RightNav';
 import {NavBar} from './style';
 
 const NavbarComponent = ({query, setQuery}) => {
-
 
     return(
         <NavBar>
