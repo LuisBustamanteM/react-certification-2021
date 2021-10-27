@@ -9,7 +9,7 @@ export const UserInfoCircle = styled.label`
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: ${colors.gray};
+  background: ${({darkMode}) => darkMode ? colors.backgroundDark  : colors.gray};
   position: relative;
   text-align: center;
   font-size: 2em;

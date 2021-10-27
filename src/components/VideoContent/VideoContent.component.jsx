@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {VideoContainer} from './styles'
+import {StateContext} from "../App/App.component";
 
 const VideoContentComponent = ({title, description, videoId}) => {
+    const {darkMode} = useContext(StateContext)
     return(
-        <VideoContainer>
+        <VideoContainer darkMode={darkMode}>
             <iframe id="player"
                     title={"videoplayer"}
                     type="text/html" width="100%" height="500"

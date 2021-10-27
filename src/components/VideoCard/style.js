@@ -5,13 +5,14 @@ export const VideoCardContainer = styled.li`
     list-style: none;
     width: 345px;
     height: 345px;
-    border: solid 0.8px #ffff;
+    border: solid 0.8px ${({darkMode}) => darkMode ? colors.dimWhite : colors.backgroundLight};
     border-radius: 4px;
+    background: ${({darkMode}) => darkMode ? colors.dimWhite : colors.backgroundLight};
     box-shadow: 0px 1px 1px black;
     overflow: hidden;
     margin: 9px;
     a {
-      color: black
+      color: ${({darkMode}) => darkMode ? colors.backgroundLight : colors.backgroundDark};
     }
 `;
 

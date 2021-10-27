@@ -18,7 +18,7 @@ export const VideoList = styled.ul`
 `
 
 export const Thumbnail = styled.li`
-  color: ${colors.dimBlack};
+  color: ${({darkMode}) => darkMode ? colors.backgroundLight : colors.dimBlack};
   list-style: none;
   display: flex;
   border-bottom: solid 1px black;

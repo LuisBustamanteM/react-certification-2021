@@ -15,3 +15,9 @@ describe("Testing <HomePage/>", () => {
         expect(component).toMatchSnapshot()
     })
 });
+
+
+/*
+* Describir  e implementar por pasos el proceso de los componentes de Home
+*
+* */

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const LeftNav = styled.div`
         margin-top: 10px;
-        color: ${colors.backgroundWhite};
+        color: ${colors.backgroundLight};
         display:flex;
         flex: 1 1 0px;
 `;

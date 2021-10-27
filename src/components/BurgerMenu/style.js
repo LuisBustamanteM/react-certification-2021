@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const BurgerMenu = styled.div`
     margin: 0;
-    color: ${colors.backgroundWhite};
+    color: ${colors.backgroundLight};
     display:flex
 `;
 

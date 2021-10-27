@@ -1,10 +1,12 @@
 export const colors = {
     dimBlack: "rgba(0, 0, 0, 0.87)",
-    backgroundWhite: "#fff",
+    backgroundLight: "#fff",
+    backgroundDark: "#2f2f2f",
     dimWhite: "rgba(255 ,255,255, 0.2)",
-    navBarBlue: "#1C5476",
+    navBarLight: "#1C5476",
+    navBarDark: "#556cd6",
     gray: "#bdbdbd",
-    dimText: "#aaaaaa"
+    dimText: "#aaaaaa",
 };
 
 export const mainTitle = {

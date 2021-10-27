@@ -15,6 +15,7 @@ function VideoPage(props) {
     useEffect(() => {
         singleVideo.setId(videoId)
         recommendedVideos.setId(videoId)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

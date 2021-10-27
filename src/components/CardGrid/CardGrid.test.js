@@ -10,6 +10,7 @@ describe("Testing <CardGrid/>", () => {
     test("displays a list of videoCard items on <CardGrid/>",  () => {
         let items = mockData.items
 
+        // check how to make a single route build function
         const component = render (
             <Router>
                 <CardGrid items={items}/>

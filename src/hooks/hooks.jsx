@@ -20,6 +20,7 @@ export const useFetch = (urlType, query = "") => {
     const [id, setId] = useState(query)
     const [videos, setVideos] = useState([])
 
+
     useEffect(() => {
         if (id !== ""){
             fetchApi(getUrl(id, urlType))
@@ -31,6 +32,7 @@ export const useFetch = (urlType, query = "") => {
                     setVideos([])
                 });
         }
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     return { setId, id, videos}
