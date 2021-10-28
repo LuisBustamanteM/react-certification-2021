@@ -6,12 +6,12 @@ import {StateContext} from "../App/App.component";
 
 import {NavBar} from './style';
 
-const NavbarComponent = ({query, setQuery}) => {
+const NavbarComponent = () => {
     const {darkMode} = useContext(StateContext)
 
     return(
         <NavBar darkMode={darkMode}>
-            <LeftNavComponent query={query} setQuery={setQuery} />
+            <LeftNavComponent />
             <RightNavComponent/>
         </NavBar>
     )

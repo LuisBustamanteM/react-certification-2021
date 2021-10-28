@@ -6,12 +6,12 @@ import {StateContext} from "../../components/App/App.component";
 
 function HomePage(props) {
   const sectionRef = useRef(null);
-  const {darkMode} = useContext(StateContext)
+  const {darkMode, videos} = useContext(StateContext)
 
   return (
     <section className="homepage" ref={sectionRef}>
       <Title darkMode={darkMode}>Welcome To The Challenge!</Title>
-      <CardGrid items={props.videos}/>
+      <CardGrid items={videos}/>
     </section>
   );
 }

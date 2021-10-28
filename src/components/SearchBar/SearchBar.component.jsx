@@ -1,16 +1,30 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
+import {DispatchContext, StateContext} from "../App/App.component";
+import fetchApi from "../../utils/fetchApi";
+import {getUrl} from "../../hooks/hooks";
 
-const SearchBarComponent = ({setQuery, query}) => {
+const SearchBarComponent = (props) => {
 
+    const {query} = useContext(StateContext)
+    const dispatch = useContext(DispatchContext)
     const [input, setInput] = useState(query || "");
     const history = useHistory();
 
     const getQueryParams = ({key}) => {
         if(input !== "" && key === "Enter"){
-            setQuery(input)
+            dispatch({type: "UPDATE_SEARCH", value: input})
+
+            fetchApi(getUrl(input, "LIST"))
+                .then( (data) => {
+                    dispatch({type: "GET_VIDEOS", value: data.items})
+                })
+                .catch((e) => {
+                    console.log("ERROR: ", e)
+                });
+
             history.push('/')
         }
     }
