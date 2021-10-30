@@ -1,15 +1,18 @@
 import React, {useContext} from 'react';
 
 import { AiOutlineUser } from 'react-icons/ai';
-import {UserInfoContainer, UserInfoCircle} from './style';
+import {UserInfoContainer, UserInfoCircle, Avatar} from './style';
 import {StateContext} from "../App/App.component";
 
 const ToggleComponent = () => {
-    const {darkMode} = useContext(StateContext)
+    const {darkMode, userData} = useContext(StateContext)
   return (
     <UserInfoContainer>
         <UserInfoCircle darkMode={darkMode}>
-           <AiOutlineUser/>
+            {userData.avatarUrl
+                ? <Avatar src={userData.avatarUrl} alt=""/>
+                : <AiOutlineUser/>
+            }
         </UserInfoCircle>
     </UserInfoContainer>
   );

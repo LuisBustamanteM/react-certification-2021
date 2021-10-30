@@ -23,7 +23,11 @@ export const Thumbnail = styled.li`
   display: flex;
   border-bottom: solid 1px black;
   font-weight: 300;
-  flex-grow:1;
+  a {
+      color: ${({darkMode}) => darkMode ? colors.backgroundLight : colors.dimBlack};
+      flex-grow:1;
+      display: flex;
+  }
   :hover {
     box-shadow: 2px 2px 2px black;
     cursor: pointer;

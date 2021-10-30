@@ -11,9 +11,10 @@ export const SearchBar = styled.div`
 export const SearchBarContainer = styled.div`
   font-size: 0.9em;
   border: white;
+  margin-left: 36px;
   background: ${colors.dimWhite};
   border-radius: 4px;
-  max-height:100%
+  max-height:100%;
   width: 100%;
   padding: 8px 10px;
   @media (max-width: 600px) {

@@ -15,3 +15,8 @@ export const UserInfoCircle = styled.label`
   font-size: 2em;
   border-radius: 50%;
 ;`
+
+export const Avatar = styled.img`
+    width: 100%;
+    border-radius: 50%;
+`

@@ -15,5 +15,17 @@ export const VideoContainer = styled.div`
     height: 100%;
     margin-bottom: 64px;
   }
-  
+`
+
+export const FavoriteButton = styled.button`
+  margin-left: 18px;  
+  height: 28px;
+  color: ${colors.backgroundLight};
+  background: ${({darkMode}) => darkMode ? colors.navBarDark : colors.navBarLight};
+  border: solid 2px ${({darkMode}) => darkMode ? colors.navBarLight : colors.navBarDark};
+  box-sizing: border-box;
+  :hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `

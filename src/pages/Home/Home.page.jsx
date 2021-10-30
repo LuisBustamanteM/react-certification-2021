@@ -11,7 +11,7 @@ function HomePage(props) {
   return (
     <section className="homepage" ref={sectionRef}>
       <Title darkMode={darkMode}>Welcome To The Challenge!</Title>
-      <CardGrid items={videos}/>
+      <CardGrid items={videos} errorMessage={"No videos to display, Try Reloading."}/>
     </section>
   );
 }

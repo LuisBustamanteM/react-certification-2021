@@ -5,8 +5,8 @@ import {render, getByRole, fireEvent } from "@testing-library/react";
 
 
 
-describe("Testing <App/>", () => {
-    test("Renders <App/>", () => {
+describe("Testing <AppComponent/>", () => {
+    test("Renders <AppComponent/>", () => {
         const component = render(<App />);
         expect(component.container);
     });
@@ -17,7 +17,7 @@ describe("Testing <App/>", () => {
 
         // const {container} = render(
         //     <ThemeContext.Provider value={"light"}>
-        //         <App/>
+        //         <AppComponent/>
         //     </ThemeContext.Provider>
         // )
 

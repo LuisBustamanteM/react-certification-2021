@@ -2,20 +2,20 @@ import React from 'react';
 import VideoCard from '../VideoCard';
 import {CardGrid, ErrorMessage } from './style';
 
-const CardGridComponent = ({items = []}) => {
+const CardGridComponent = ({items = [], errorMessage}) => {
 
     return(
         <CardGrid>
             { items.length > 0 ? items.map( (item, idx) => (
-                    <VideoCard key={item.id.videoId}
-                               id={item.id.videoId}
+                    <VideoCard key={item.id.videoId ? item.id.videoId : item.id}
+                               id={item.id.videoId ? item.id.videoId : item.id}
                                defaultImage={item.snippet.thumbnails.default.url}
                                mediumImage={item.snippet.thumbnails.medium.url}
                                highImage={item.snippet.thumbnails.high.url}
                                title={item.snippet.title}
                                description={item.snippet.description}/>
                 ))
-                : <ErrorMessage>No videos to display, Try Reloading.</ErrorMessage>
+                : <ErrorMessage>{errorMessage}</ErrorMessage>
             }
         </CardGrid>
     )

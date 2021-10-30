@@ -20,17 +20,14 @@ export function getUrl (id = "", type) {
 export const useFetch = (urlType, query = "") => {
     const [id, setId] = useState(query)
     const [videos, setVideos] = useState([])
-    const dispatch = useContext(DispatchContext)
+
+    // check if query is an array
     useEffect(() => {
         if (id !== ""){
             fetchApi(getUrl(id, urlType))
                 .then( (data) => {
-                    let items = data.items.filter(item => item.snippet)
-                    if(urlType === "LIST"){
-                        dispatch({type: "GET_VIDEOS", value: items})
-                    } else {
-                        setVideos(items)
-                    }
+                    const items = data.items.filter(item => item.snippet)
+                    setVideos(items)
                 })
                 .catch((e) => {
                     console.log("ERROR: ", e)
@@ -40,4 +37,28 @@ export const useFetch = (urlType, query = "") => {
     }, [id]);
 
     return { setId, id, videos}
+}
+
+
+export const useFetchId = (ids = []) => {
+    const [videos, setVideos] = useState([])
+    const [idList, setIdList] = useState(ids)
+
+    // check if query is an array
+    useEffect(() => {
+        if (idList.length > 0){
+            const stringIds = ids.join("&id=")
+            fetchApi(getUrl(stringIds, "SINGLE"))
+                .then( (data) => {
+                    const items = data.items.filter(item => item.snippet)
+                    setVideos(items)
+                })
+                .catch((e) => {
+                    console.log("ERROR: ", e)
+                });
+        }
+// eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [idList, setIdList]);
+
+    return { videos, idList }
 }
