@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import {DispatchContext, StateContext} from "../../components/App/App.component";
+import {DispatchContext, StateContext} from "../../AppContext";
 import {LoginContainer, Title, Form, Input, Button, Line, Error} from "./styles";
 
 const LoginComponent = (props) => {

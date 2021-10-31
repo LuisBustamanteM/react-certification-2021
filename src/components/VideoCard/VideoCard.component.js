@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {VideoCardContainer, Thumbnail, Title, Paragraph, Content} from './style';
 import {Link} from 'react-router-dom'
-import {StateContext} from "../App/App.component";
+import {StateContext} from "../../AppContext";
 
 const VideoCardComponent = (props) => {
 

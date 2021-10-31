@@ -1,37 +1,48 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {useFetch} from "../../hooks/hooks";
+import React, {useRef, useEffect, useState, useContext} from 'react';
 import {useParams} from "react-router";
 import VideoContent from "../../components/VideoContent";
 import VideoList from "../../components/VideoList";
-import {VideoPageContainer} from './style'
+import {VideoPageContainer, Container} from './style'
+import {StateContext} from "../../AppContext";
+import fetchApi, {getUrl} from "../../utils/fetchApi";
 
 function VideoPage(props) {
     const sectionRef = useRef(null);
 
-    const singleVideo = useFetch("SINGLE")
-    const recommendedVideos = useFetch("RECOMMENDED")
-    const [videoId] = useState(useParams().id)
+    const [videoContent, setVideoContent] = useState({id: {}, snippet: {}})
+    const [recommendedVideos, setrecommendedVideos] = useState({})
+
+    const [videoId, setVideoId] = useState(useParams().id)
+    const {darkMode} = useContext(StateContext)
 
 
     useEffect(() => {
-        singleVideo.setId(videoId)
-        recommendedVideos.setId(videoId)
+
+        fetchApi(getUrl(videoId, "ID"))
+            .then( (data) => {
+                 setVideoContent(data.items[0])
+            })
+
+        fetchApi(getUrl(videoId, "RECOMMENDED"))
+            .then( (data) => {
+                setrecommendedVideos(data.items.filter(item => item.snippet))
+            })
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [videoId])
 
     return (
-        <section ref={sectionRef}>
-            {singleVideo.videos && singleVideo.videos.length > 0
+        <Container ref={sectionRef} darkMode={darkMode}>
+            {Object.keys(videoContent).length !== 0
                 ?  <VideoPageContainer title={"videoplayer"}>
-                    <VideoContent title={singleVideo.videos && singleVideo.videos[0].snippet.title}
-                                  description={singleVideo.videos &&  singleVideo.videos[0].snippet.title}
-                                  videoId={typeof singleVideo.videos[0].id === "string" ? singleVideo.videos[0].id : singleVideo.videos[0].id.videoId} />
-                    <VideoList videos={recommendedVideos.videos} setId={singleVideo.setId}/>
+                    <VideoContent title={videoContent.snippet.title}
+                                  description={videoContent.snippet.title}
+                                  videoId={videoContent && videoContent.id && typeof videoContent.id === "string" ? videoContent.id : videoContent.id.videoId} />
+                    <VideoList videos={recommendedVideos} setId={setVideoId}/>
                 </VideoPageContainer>
                 : <div>Video not found </div>
             }
-        </section>
+        </Container>
     );
 }
 

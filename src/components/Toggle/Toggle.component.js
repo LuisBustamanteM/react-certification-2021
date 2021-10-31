@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {ToggleContainer, Switch, ToggleSwitch, ToggleSlider} from './style';
-import {StateContext, DispatchContext} from "../App/App.component";
+import {StateContext, DispatchContext} from "../../AppContext";
 
 const ToggleComponent = () => {
     const {darkMode} = useContext(StateContext)

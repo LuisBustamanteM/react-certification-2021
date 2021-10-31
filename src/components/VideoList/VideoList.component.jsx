@@ -1,13 +1,13 @@
 import React, {useContext} from 'react'
 import {Thumbnail, VideoList, VideoListContainer} from "./style"
-import {StateContext} from "../App/App.component";
+import {StateContext} from "../../AppContext";
 import {Link} from 'react-router-dom'
 
 const VideoListComponent = ({videos, setId}) => {
     const {darkMode} = useContext(StateContext)
 
     const updateId = (thumbnailId) => {
-        setId(thumbnailId)
+        //setId(thumbnailId)
     }
 
     return(

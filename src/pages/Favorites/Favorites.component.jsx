@@ -1,20 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react'
 import CardGridComponent from "../../components/CardGrid";
-import {DispatchContext, StateContext} from "../../components/App/App.component";
-import {useFetchId} from "../../hooks/hooks";
+import {StateContext} from "../../AppContext";
 import {fetchVideos} from '../../utils/fetchApi'
 import {useHistory} from "react-router-dom";
+import {FavoritesContainer} from "./style";
 
 const FavoritesComponent = (props) => {
 
     const history = useHistory();
 
-    // Request favorite
     let [favoriteVideos, setFavoriteVideos] = useState([])
-
-    const {isLoggedIn, favoriteIds} = useContext(StateContext)
-
-    console.log({favoriteIds})
+    const {isLoggedIn, favoriteIds, darkMode} = useContext(StateContext)
 
     useEffect(() => {
 
@@ -31,9 +27,9 @@ const FavoritesComponent = (props) => {
     }, [])
 
     return(
-        <div>
+        <FavoritesContainer darkMode={darkMode}>
             <CardGridComponent errorMessage={"You still haven't added favorite videos"} items={favoriteVideos}/>
-        </div>
+        </FavoritesContainer>
     )
 }
 

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import {BurgerContainer, BurgerTile, List, ListItem, SideMenuContainer, SideNav} from "./styles";
 import BurgerMenuComponent from "../BurgerMenu";
-import {StateContext} from '../App/App.component'
+import {StateContext} from "../../AppContext";
 
 const SideMenuComponent = (props) => {
     const [display, setDisplay] = useState(false);
