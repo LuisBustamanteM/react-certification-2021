@@ -26,16 +26,11 @@ describe("Testing <AppComponent/>", () => {
 
             return {
                 container,
-                article: () => getByRole(container, "article"),
                 toggleSwitch: () => getByRole(container, "checkbox")
             }
         }
 
-        const {article, toggleSwitch} = build()
-
-
-        expect( article()).toBeInTheDocument()
-        expect( article()).toHaveTextContent("light")
+        const {toggleSwitch} = build()
 
         fireEvent.click( toggleSwitch() )
     })
