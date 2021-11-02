@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
 import {StateContext, DispatchContext} from "../../AppContext";
-import fetchApi, {getUrl} from "../../utils/fetchApi";
+import {fetchVideos} from "../../utils/utils";
 
 const SearchBarComponent = (props) => {
 
@@ -16,9 +16,9 @@ const SearchBarComponent = (props) => {
         if(input !== "" && key === "Enter"){
             dispatch({type: "UPDATE_SEARCH", value: input})
 
-            fetchApi(getUrl(input, "QUERY"))
-                .then( (data) => {
-                    dispatch({type: "GET_VIDEOS", value: data.items})
+            fetchVideos(input, "QUERY")
+                .then( (items) => {
+                    dispatch({type: "GET_VIDEOS", value: items})
                 })
                 .catch((e) => {
                     console.log("ERROR: ", e)

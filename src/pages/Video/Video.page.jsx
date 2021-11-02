@@ -4,7 +4,7 @@ import VideoContent from "../../components/VideoContent";
 import VideoList from "../../components/VideoList";
 import {VideoPageContainer, Container} from './style'
 import {StateContext} from "../../AppContext";
-import fetchApi, {getUrl} from "../../utils/fetchApi";
+import {fetchVideos} from "../../utils/utils";
 
 function VideoPage(props) {
     const sectionRef = useRef(null);
@@ -15,17 +15,16 @@ function VideoPage(props) {
     const [videoId, setVideoId] = useState(useParams().id)
     const {darkMode} = useContext(StateContext)
 
-
     useEffect(() => {
 
-        fetchApi(getUrl(videoId, "ID"))
-            .then( (data) => {
-                 setVideoContent(data.items[0])
+        fetchVideos(videoId, "ID")
+            .then( (items) => {
+                 setVideoContent(items[0])
             })
 
-        fetchApi(getUrl(videoId, "RECOMMENDED"))
-            .then( (data) => {
-                setrecommendedVideos(data.items.filter(item => item.snippet))
+        fetchVideos(videoId, "RECOMMENDED")
+            .then( (items) => {
+                setrecommendedVideos(items)
             })
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +33,7 @@ function VideoPage(props) {
     return (
         <Container ref={sectionRef} darkMode={darkMode}>
             {Object.keys(videoContent).length !== 0
-                ?  <VideoPageContainer title={"videoplayer"}>
+                ?  <VideoPageContainer role={"videoplayer"}>
                     <VideoContent title={videoContent.snippet.title}
                                   description={videoContent.snippet.title}
                                   videoId={videoContent && videoContent.id && typeof videoContent.id === "string" ? videoContent.id : videoContent.id.videoId} />

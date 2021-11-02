@@ -6,7 +6,7 @@ const CardGridComponent = ({items = [], errorMessage}) => {
 
     return(
         <CardGrid>
-            { items.length > 0 ? items.map( (item, idx) => (
+            { items.length > 0 ? items.map( (item) => (
                     <VideoCard key={item.id.videoId ? item.id.videoId : item.id}
                                id={item.id.videoId ? item.id.videoId : item.id}
                                defaultImage={item.snippet.thumbnails.default.url}

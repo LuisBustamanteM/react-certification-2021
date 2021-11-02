@@ -1,23 +1,25 @@
 import React from 'react';
 
 import HomePage from './index';
-import {render} from "@testing-library/react";
+import {render, getByRole} from "@testing-library/react";
 import {BrowserRouter as Router} from "react-router-dom";
+import AppContext from "../../AppContext";
 
 describe("Testing <HomePage/>", () => {
-    it("Compares with a snapshot of <HomePage/>", () => {
-        const component = render (
-            <Router>
-                <HomePage/>
-            </Router>
+    it("Renders all child components inside <HomePage/>", () => {
+        const {container} = render (
+            <AppContext>
+                <Router>
+                    <HomePage/>
+                </Router>
+            </AppContext>
         );
 
-        expect(component).toMatchSnapshot()
+        const title = () => getByRole(container, "heading", {level:1})
+        const cardGrid = () => getByRole(container, "list")
+
+        expect(title())
+        expect(cardGrid())
+
     })
 });
-
-
-/*
-* Describir  e implementar por pasos el proceso de los componentes de Home
-*
-* */

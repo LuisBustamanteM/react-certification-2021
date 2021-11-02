@@ -1,35 +1,40 @@
 import React from 'react';
 
 import CardGrid from './index';
-import {render, getAllByRole, getByRole } from "@testing-library/react";
+import {render, getByRole } from "@testing-library/react";
 import mockData from "../../MockData/youtubeResult.json";
 import { BrowserRouter as Router } from 'react-router-dom';
+import AppContext from "../../AppContext";
 
 describe("Testing <CardGrid/>", () => {
 
-    test("displays a list of videoCard items on <CardGrid/>",  () => {
+    const errorMessage = "No videos to display, try again"
+
+    it("Displays a list of videoCard items on <CardGrid/>",  () => {
         let items = mockData.items
 
-        // check how to make a single route build function
         const component = render (
-            <Router>
-                <CardGrid items={items}/>
-            </Router>
+            <AppContext>
+                <Router>
+                    <CardGrid items={items} errorMessage={errorMessage}/>
+                </Router>
+            </AppContext>
             );
 
         const videoCards = component.getAllByRole("listitem")
         expect(videoCards).toHaveLength(items.length)
     });
 
-    test("Displays error message when no items have been passed on <CardGrid/>",  () => {
-        const component = render (
+    it("Displays error message when no items have been passed on <CardGrid/>",  () => {
+
+        const {container} = render (
             <Router>
-                <CardGrid />
+                <CardGrid errorMessage={errorMessage}/>
             </Router>
         );
 
-        const errorMessage = component.getByRole("heading", {level: 3})
-        expect(errorMessage).toHaveTextContent("No videos to display, Try Reloading.")
+        const error = getByRole(container,"heading", {level: 3})
+        expect(error).toHaveTextContent(errorMessage)
     });
 
 });

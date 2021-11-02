@@ -1,26 +1,19 @@
-import React, {useReducer} from 'react'
+import React from 'react'
 import { render, getByRole, getByText, fireEvent, waitFor, act } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks'
 import Login from './Login.component';
-import {StateContext, DispatchContext, initialState, reducer} from "../../components/App/App.component";
+import AppContext from "../../AppContext";
 
 const build = () => {
-    const {result} = renderHook(() => useReducer(reducer, initialState))
-    const [state, dispatch ] = result.current
 
     const {container, debug} = render (
-        <DispatchContext.Provider value={dispatch}>
-            <StateContext.Provider value={state}>
-                <Login/>
-            </StateContext.Provider>
-        </DispatchContext.Provider>
+        <AppContext>
+            <Login/>
+        </AppContext>
     )
 
     return {
         container,
         debug,
-        state,
-        dispatch,
         userInput: () => getByRole(container, "textbox"),
         passwordInput: () => getByRole(container, "password")
     }

@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import CardGridComponent from "../../components/CardGrid";
 import {StateContext} from "../../AppContext";
-import {fetchVideos} from '../../utils/fetchApi'
+import {fetchVideos} from '../../utils/utils'
 import {useHistory} from "react-router-dom";
 import {FavoritesContainer} from "./style";
 
@@ -19,7 +19,7 @@ const FavoritesComponent = (props) => {
         }
 
         if (favoriteIds && favoriteIds.length > 0) {
-            fetchVideos(favoriteIds)
+            fetchVideos(favoriteIds, "ID")
                 .then((videos) => {
                     setFavoriteVideos(videos)
                 })

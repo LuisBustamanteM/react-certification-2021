@@ -2,7 +2,7 @@ import React from 'react';
 import { FaBars } from 'react-icons/fa';
 import {BarsContainer, BurgerMenu} from './style';
 
-const BurgerMenuComponent = ({className, props}) => {
+const BurgerMenuComponent = (props) => {
     return(
         <BurgerMenu>
             <BarsContainer>

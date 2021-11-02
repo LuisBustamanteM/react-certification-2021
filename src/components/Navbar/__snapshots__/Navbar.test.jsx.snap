@@ -3,40 +3,19 @@
 exports[`Testing <Navbar/> <Navbar/> matches snapshot 1`] = `
 <div>
   <div
-    class="sc-crrszt ioHtOx"
+    class="sc-dQoVA ckayCX"
   >
     <div
-      class="sc-gKseQn dKXYcW"
+      class="sc-eCstlR jhFGSs"
     >
       <div
-        class="sc-bdfBQB dVLZuS"
+        class="sc-bdfBQB hchZau"
       >
         <div
-          class="sc-gsTEea iLqQBc"
-        >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 448 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        class="sc-dlfnuX dJjcdC"
-      >
-        <div
-          class="sc-hKgJUU bJyFOW"
+          class="sc-gsTEea gextng"
         >
           <div
-            class="sc-eCstlR cNusON"
+            class="sc-dlfnuX bxyajH"
           >
             <svg
               fill="currentColor"
@@ -53,51 +32,44 @@ exports[`Testing <Navbar/> <Navbar/> matches snapshot 1`] = `
             </svg>
           </div>
           <input
-            class="sc-jSgvzq hdkkNo"
+            class="sc-hKgJUU gfleLt"
             placeholder="Search..."
             type="text"
-            value=""
+            value="Wizeline"
           />
         </div>
       </div>
     </div>
     <div
-      class="sc-iqHYmW dlhRKn"
+      class="sc-crrszt hatZDm"
     >
       <div
-        class="sc-iBPTik jwdlOj"
+        class="sc-jSgvzq ctEpNB"
       >
+        <div
+          class="sc-fubCzh ehNjeG"
+        >
+          <input
+            checked=""
+            type="checkbox"
+          />
+          <div
+            class="sc-pGacB clwlSv slider"
+          />
+        </div>
         <label
-          class="sc-fubCzh hhKMcO"
+          class="sc-gKseQn hzDtly"
+          for="toggle-mode"
         >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 16 16"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z"
-            />
-            <path
-              d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z"
-            />
-          </svg>
+          Dark
+           Mode
         </label>
-        <span
-          class="sc-pGacB cGcwis"
-        >
-          Dark Mode
-        </span>
       </div>
       <div
         class="sc-jrAFXE clIODa"
       >
         <label
-          class="sc-kEjbQP gBjhEe"
+          class="sc-kEjbQP rNvkg"
         >
           <svg
             fill="currentColor"

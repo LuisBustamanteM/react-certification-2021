@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import {DispatchContext, StateContext} from "../../AppContext";
 import {LoginContainer, Title, Form, Input, Button, Line, Error} from "./styles";
+import {fetchLogin} from "../../utils/utils";
 
 const LoginComponent = (props) => {
 
@@ -21,31 +22,14 @@ const LoginComponent = (props) => {
 
     async function login(e){
         e.preventDefault()
-        try{
-            const res = await fetch("http://localhost:8080/login", {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
-            })
 
-            const content = await res.json()
-
-            if (content.message === "SUCCESS"){
-                dispatch({type: "LOGIN", value: content.userData})
-                setError(false)
-                history.push('/')
-            } else {
-                setError(true)
-            }
-
-        } catch (e) {
-            console.log("ERROR: ", e)
+        let content = await fetchLogin(username, password)
+        if (content.message === "SUCCESS"){
+            dispatch({type: "LOGIN", value: content.userData})
+            setError(false)
+            history.push('/')
+        } else {
+            setError(true)
         }
     }
     return (

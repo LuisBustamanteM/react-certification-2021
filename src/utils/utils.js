@@ -3,6 +3,10 @@ const env = config.currentEnv
 const {baseUrl, key} = config.environments[env]
 
 export function getUrl(id = "", type) {
+    if (typeof id === "object"){
+        id = id.join("&id=")
+    }
+
     const query = id.replace(" ", "%20")
     const urls =  {
         "ID":`${baseUrl}/videos?part=snippet&id=${query}&key=${key}`,
@@ -13,25 +17,8 @@ export function getUrl(id = "", type) {
     return urls[type]
 }
 
-async function fetchApi(url){
-    let data = [];
-    try{
-        data = await fetch(url)
-            .then(res => {
-                return res.json()
-            });
-
-        return data;
-
-    } catch(e){
-        throw new Error(`Failed fetching to url: ${url}`);
-    }
-
-}
-
-export async function fetchVideos(ids){
-    const stringIds = ids.join("&id=")
-    const url = getUrl(stringIds, "ID")
+export async function fetchVideos(ids, type){
+    const url = getUrl(ids, type)
     let items = []
 
     try{
@@ -45,4 +32,23 @@ export async function fetchVideos(ids){
     }
 }
 
-export default fetchApi;
+export async function fetchLogin(username, password) {
+    try{
+        const res = await fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        })
+
+        return await res.json()
+
+    } catch (e) {
+        console.log("ERROR: ", e)
+    }
+}

@@ -1,38 +1,14 @@
-import React, {createContext} from 'react';
-
+import React from 'react';
 import App from './index';
-import {render, getByRole, fireEvent } from "@testing-library/react";
+import {render } from "@testing-library/react";
 
 
 
 describe("Testing <AppComponent/>", () => {
     test("Renders <AppComponent/>", () => {
         const component = render(<App />);
-        expect(component.container);
+
+        expect(component);
     });
-
-    test("Get theme data from context", () => {
-        //const ThemeContext = createContext("light")
-
-
-        // const {container} = render(
-        //     <ThemeContext.Provider value={"light"}>
-        //         <AppComponent/>
-        //     </ThemeContext.Provider>
-        // )
-
-        const build = () => {
-            const {container, debug} = render(<App/>)
-
-            return {
-                container,
-                toggleSwitch: () => getByRole(container, "checkbox")
-            }
-        }
-
-        const {toggleSwitch} = build()
-
-        fireEvent.click( toggleSwitch() )
-    })
 
 });
