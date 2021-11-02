@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {VideoCardContainer, Thumbnail, Title, Paragraph, Content} from './style';
 import {Link} from 'react-router-dom'
-import {StateContext} from "../../AppContext";
+import {StateContext} from "../../StateHandlers/AppContext";
 
 const VideoCardComponent = (props) => {
 
@@ -9,7 +9,7 @@ const VideoCardComponent = (props) => {
 
     return (
         <VideoCardContainer darkMode={darkMode}>
-            <Link to={`/video/${props.id}`}>
+            <Link to={`/${props.page}/${props.id}`}>
                 <Thumbnail defaultImage={props.defaultImage}
                            mediumImage={props.mediumImage}
                            highImage={props.highImage}/>

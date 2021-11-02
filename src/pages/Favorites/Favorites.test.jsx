@@ -2,7 +2,7 @@ import React from 'react';
 import Favorites from './index';
 import {render, getByRole} from "@testing-library/react";
 import {BrowserRouter as Router} from "react-router-dom";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 const build = () => {
 

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {FavoriteButton, VideoContainer} from './styles'
-import {StateContext, DispatchContext} from "../../AppContext";
+import {StateContext, DispatchContext} from "../../StateHandlers/AppContext";
 
 const VideoContentComponent = ({title, description, videoId}) => {
     const {darkMode, favoriteIds, isLoggedIn} = useContext(StateContext)

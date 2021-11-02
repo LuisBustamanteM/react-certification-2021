@@ -2,6 +2,7 @@ import {colors, mainTitle} from '../../globalStyle';
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
+  margin-top: 80px;
   min-height: 100vh;
   background: ${({darkMode}) => darkMode ? colors.backgroundDark : colors.backgroundLight};
   color: ${({darkMode}) => darkMode ? colors.backgroundLight : colors.backgroundDark};

@@ -36,8 +36,6 @@ export const Button = styled.input`
   font-weight: bold;
   border: none;
   box-shadow: 4px 2px 8px black;
-  position: absolute;
-  bottom: 14px;
   width: 94%;
   font-size: 18px;
 `

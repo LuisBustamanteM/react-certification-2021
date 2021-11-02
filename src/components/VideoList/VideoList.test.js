@@ -3,7 +3,7 @@ import VideoList from './index';
 import {render } from "@testing-library/react";
 import mockData from "../../MockData/youtubeResult.json";
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 const mockApi = jest
     .spyOn(global, 'fetch')

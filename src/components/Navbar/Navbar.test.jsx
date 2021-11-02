@@ -2,7 +2,7 @@ import React from 'react';
 
 import Navbar from './index';
 import {render} from "@testing-library/react";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 describe("Testing <Navbar/>", () => {
     test("<Navbar/> matches snapshot", () => {

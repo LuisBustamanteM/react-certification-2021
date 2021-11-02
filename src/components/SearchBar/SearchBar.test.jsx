@@ -2,7 +2,7 @@ import React from 'react'
 import SearchBar from './index'
 import {render, fireEvent, getByRole, waitFor} from "@testing-library/react"
 import { act } from '@testing-library/react-hooks'
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 jest.mock('react-router-dom', () => ({
     useHistory: () => ({

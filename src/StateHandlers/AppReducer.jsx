@@ -1,5 +1,3 @@
-import React, {createContext, useReducer} from 'react'
-
 export function appReducer(state, action) {
     switch (action.type) {
         case 'UPDATE_QUERY': {
@@ -76,23 +74,3 @@ export const initialState = {
     isLoggedIn: !!window.sessionStorage.getItem("isLoggedIn"),
     userData: JSON.parse(window.sessionStorage.getItem("userData")) || {},
 }
-
-export const StateContext = createContext()
-export const DispatchContext = createContext()
-
-const AppContext = (props) => {
-    const [state, dispatch] = useReducer(appReducer, initialState)
-
-    return (
-        <DispatchContext.Provider value={dispatch}>
-            <StateContext.Provider value={state}>
-                {props.children}
-            </StateContext.Provider>
-        </DispatchContext.Provider>
-
-    )
-
-}
-
-export default AppContext
-

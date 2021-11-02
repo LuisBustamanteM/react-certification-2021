@@ -1,11 +1,16 @@
 import React from 'react';
 
-import Layout from './index';
 import {render} from "@testing-library/react";
+import AppContext from "../../StateHandlers/AppContext";
+import RightNav from "./index";
 
-describe("Testing <Layout/>", () => {
-    test("<Layout/> matches snapshot", () => {
-        const component = render(<Layout />);
+describe("Testing <RightNav/>", () => {
+    test("<RightNav/> matches snapshot", () => {
+        const component = render(
+            <AppContext>
+                <RightNav/>
+            </AppContext>
+        );
         expect (component.container).toMatchSnapshot();
     });
 

@@ -2,33 +2,45 @@ import React, {useRef, useEffect, useState, useContext} from 'react';
 import {useParams} from "react-router";
 import VideoContent from "../../components/VideoContent";
 import VideoList from "../../components/VideoList";
-import {VideoPageContainer, Container} from './style'
+import {VideoPageContainer, Container} from '../Video/style'
 import {StateContext} from "../../StateHandlers/AppContext";
 import {fetchVideos} from "../../utils/utils";
+import {useHistory} from "react-router-dom";
 
-function VideoPage(props) {
+function VideoFavoritesPage(props) {
     const sectionRef = useRef(null);
 
     const [videoContent, setVideoContent] = useState({id: {}, snippet: {}})
-    const [recommendedVideos, setrecommendedVideos] = useState({})
-
     const [videoId, setVideoId] = useState(useParams().id)
-    const {darkMode} = useContext(StateContext)
+    const history = useHistory();
+
+    let [favoriteVideos, setFavoriteVideos] = useState([])
+    const {isLoggedIn, favoriteIds, darkMode} = useContext(StateContext)
 
     useEffect(() => {
 
+        if(!isLoggedIn){
+            history.push('/login')
+        }
+
+        if (favoriteIds && favoriteIds.length > 0) {
+            fetchVideos(favoriteIds, "ID")
+                .then((videos) => {
+                    setFavoriteVideos(videos)
+                })
+        }
+
         fetchVideos(videoId, "ID")
             .then( (items) => {
-                 setVideoContent(items[0])
-            })
-
-        fetchVideos(videoId, "RECOMMENDED")
-            .then( (items) => {
-                setrecommendedVideos(items)
+                setVideoContent(items[0])
             })
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [videoId])
+
+    function getVideoId(content) {
+        return typeof content.id === "string" ? content.id : content.id.videoId
+    }
 
     return (
         <Container ref={sectionRef} darkMode={darkMode}>
@@ -36,8 +48,8 @@ function VideoPage(props) {
                 ?  <VideoPageContainer role={"videoplayer"}>
                     <VideoContent title={videoContent.snippet.title}
                                   description={videoContent.snippet.title}
-                                  videoId={videoContent && videoContent.id && typeof videoContent.id === "string" ? videoContent.id : videoContent.id.videoId} />
-                    <VideoList videos={recommendedVideos} setId={setVideoId}/>
+                                  videoId={videoContent && videoContent.id && getVideoId(videoContent)} />
+                    <VideoList videos={favoriteVideos.filter((video) => getVideoId(video) !== videoId)} page={"favorites"}/>
                 </VideoPageContainer>
                 : <div>Video not found </div>
             }
@@ -45,4 +57,4 @@ function VideoPage(props) {
     );
 }
 
-export default VideoPage;
+export default VideoFavoritesPage;

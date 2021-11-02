@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import {DispatchContext} from "../../AppContext";
+import {DispatchContext} from "../../StateHandlers/AppContext";
 
 const LogoutComponent = (props) => {
 

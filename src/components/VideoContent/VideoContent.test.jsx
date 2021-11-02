@@ -1,7 +1,7 @@
 import React from 'react'
 import VideoContent from "./VideoContent.component";
 import { render, getByTitle, getByText } from "@testing-library/react"
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 import mockData from '../../MockData/youtubeResult.json'
 
 let video = mockData.items[0]

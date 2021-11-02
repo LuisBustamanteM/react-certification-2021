@@ -2,7 +2,7 @@ import React from 'react'
 import { render, getByRole } from "@testing-library/react"
 import VideoPage from './index'
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 describe("Testing <VideoPage/>", () => {
     it("Renders all child components inside <VideoPage/>", () => {

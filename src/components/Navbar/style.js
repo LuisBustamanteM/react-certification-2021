@@ -2,14 +2,15 @@ import {colors} from '../../globalStyle';
 import styled from 'styled-components';
 
 export const NavBar = styled.div`
-    margin: 0;
+    position: fixed;
+    top: 0;
     text-align: left;
     color: ${colors.dimBlack};
     display:inline-flex;
     display: -webkit-flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    position: relative;
+    width: 100%;
     padding: 10px 24px 0 24px;
     background: ${props => props.darkMode ?  colors.navBarDark : colors.navBarLight };
     min-height: 64px;

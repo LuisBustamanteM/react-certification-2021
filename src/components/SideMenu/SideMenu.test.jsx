@@ -2,7 +2,7 @@ import React from 'react'
 import { render, getByRole, fireEvent, act } from '@testing-library/react';
 import SideMenu from './SideMenu.component';
 import { BrowserRouter} from "react-router-dom";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 const build = () => {
 

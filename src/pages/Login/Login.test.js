@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, getByRole, getByText, fireEvent, waitFor, act } from '@testing-library/react';
 import Login from './Login.component';
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 const build = () => {
 

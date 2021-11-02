@@ -2,7 +2,7 @@ import React, {useContext} from  'react';
 
 import LeftNavComponent from '../LeftNav';
 import RightNavComponent from '../RightNav';
-import {StateContext} from "../../AppContext";
+import {StateContext} from "../../StateHandlers/AppContext";
 
 import {NavBar} from './style';
 

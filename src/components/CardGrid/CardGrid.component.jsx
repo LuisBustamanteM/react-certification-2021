@@ -2,7 +2,7 @@ import React from 'react';
 import VideoCard from '../VideoCard';
 import {CardGrid, ErrorMessage } from './style';
 
-const CardGridComponent = ({items = [], errorMessage}) => {
+const CardGridComponent = ({items = [], errorMessage, page= 'video'}) => {
 
     return(
         <CardGrid>
@@ -13,7 +13,8 @@ const CardGridComponent = ({items = [], errorMessage}) => {
                                mediumImage={item.snippet.thumbnails.medium.url}
                                highImage={item.snippet.thumbnails.high.url}
                                title={item.snippet.title}
-                               description={item.snippet.description}/>
+                               description={item.snippet.description}
+                               page={page}/>
                 ))
                 : <ErrorMessage>{errorMessage}</ErrorMessage>
             }

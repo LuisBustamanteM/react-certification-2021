@@ -2,7 +2,7 @@ import React, {useContext, useRef} from 'react';
 
 import CardGrid from '../../components/CardGrid';
 import {HomeContainer, Title} from './style';
-import {StateContext} from "../../AppContext";
+import {StateContext} from "../../StateHandlers/AppContext";
 
 function HomePage(props) {
   const sectionRef = useRef(null);

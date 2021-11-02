@@ -3,7 +3,7 @@ import React from 'react';
 import HomePage from './index';
 import {render, getByRole} from "@testing-library/react";
 import {BrowserRouter as Router} from "react-router-dom";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 describe("Testing <HomePage/>", () => {
     it("Renders all child components inside <HomePage/>", () => {

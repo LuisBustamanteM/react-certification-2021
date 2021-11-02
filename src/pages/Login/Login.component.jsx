@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import {DispatchContext, StateContext} from "../../AppContext";
+import {DispatchContext, StateContext} from "../../StateHandlers/AppContext";
 import {LoginContainer, Title, Form, Input, Button, Line, Error} from "./styles";
 import {fetchLogin} from "../../utils/utils";
 
@@ -29,6 +29,8 @@ const LoginComponent = (props) => {
             setError(false)
             history.push('/')
         } else {
+            setUsername("")
+            setPassword("")
             setError(true)
         }
     }
@@ -37,7 +39,7 @@ const LoginComponent = (props) => {
             <Title>Login</Title>
             <Line/>
             <Form onSubmit={login}>
-                {error && <Error>Username or Password is incorrect</Error>}
+                {error && <Error>Username or Password are incorrect</Error>}
                 <label htmlFor={"username"}>Username</label>
                 <Input name={"username"} type={"text"} value={username} onChange={({target}) => setUsername(target.value)}/>
 

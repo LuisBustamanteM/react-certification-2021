@@ -2,7 +2,7 @@ import React from 'react';
 
 import Toggle from './index';
 import {render, getByText, getByRole, act, fireEvent} from "@testing-library/react";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 describe("Testing <Toggle/>", () => {
     it("Changes mode when click on<Toggle/> ", () => {

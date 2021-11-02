@@ -1,7 +1,7 @@
 import React from 'react';
 import UserInfo from './index';
 import {render} from "@testing-library/react";
-import AppContext from "../../AppContext";
+import AppContext from "../../StateHandlers/AppContext";
 
 describe("Testing <UserInfo/>", () => {
     test("<UserInfo/> matches snapshot", () => {

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import CardGridComponent from "../../components/CardGrid";
-import {StateContext} from "../../AppContext";
+import {StateContext} from "../../StateHandlers/AppContext";
 import {fetchVideos} from '../../utils/utils'
 import {useHistory} from "react-router-dom";
 import {FavoritesContainer} from "./style";
@@ -28,7 +28,7 @@ const FavoritesComponent = (props) => {
 
     return(
         <FavoritesContainer darkMode={darkMode}>
-            <CardGridComponent errorMessage={"You still haven't added favorite videos"} items={favoriteVideos}/>
+            <CardGridComponent errorMessage={"You still haven't added favorite videos"} items={favoriteVideos} page={'favorites'}/>
         </FavoritesContainer>
     )
 }

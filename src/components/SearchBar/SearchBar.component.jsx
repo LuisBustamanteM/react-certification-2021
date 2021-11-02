@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
-import {StateContext, DispatchContext} from "../../AppContext";
+import {StateContext, DispatchContext} from "../../StateHandlers/AppContext";
 import {fetchVideos} from "../../utils/utils";
 
 const SearchBarComponent = (props) => {

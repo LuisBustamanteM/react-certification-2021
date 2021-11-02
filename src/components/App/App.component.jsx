@@ -1,15 +1,16 @@
-import React, {useContext} from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import HomePage from '../../pages/Home';
-import VideoPage from '../../pages/Video';
-import FavoritesPage from '../../pages/Favorites';
-import {fetchVideos} from "../../utils/utils";
-import NavBar from "../Navbar/Navbar.component";
-import {StyledApp} from "./styles";
-import SideMenuComponent from "../SideMenu";
-import LogoutPage from "../../pages/Logout";
-import LoginPage from "../../pages/Login";
-import AppContext, {StateContext, DispatchContext} from "../../AppContext";
+import React, {useContext} from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import HomePage from '../../pages/Home'
+import VideoPage from '../../pages/Video'
+import FavoritesPage from '../../pages/Favorites'
+import ViewFavoritesPage from '../../pages/ViewFavorites'
+import {fetchVideos} from "../../utils/utils"
+import NavBar from "../Navbar/Navbar.component"
+import {StyledApp} from "./styles"
+import SideMenuComponent from "../SideMenu"
+import LogoutPage from "../../pages/Logout"
+import LoginPage from "../../pages/Login"
+import AppContext, {StateContext, DispatchContext} from "../../StateHandlers/AppContext"
 
 
 function AppContainer(props) {
@@ -46,6 +47,8 @@ function App(props) {
                             <Route path='/login' exact
                                    render={routeProps => <LoginPage {...routeProps} key={document.location.href}/>}/>
                             <Route path='/favorites' exact render={routeProps => <FavoritesPage {...routeProps}
+                                                                                                key={document.location.href}/>}/>
+                            <Route path='/favorites/:id' exact render={routeProps => <ViewFavoritesPage {...routeProps}
                                                                                                 key={document.location.href}/>}/>
                             <Route path='/video/:id' exact
                                    render={routeProps => <VideoPage {...routeProps} key={document.location.href}/>}/>

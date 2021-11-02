@@ -1,45 +1,33 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import {Link} from "react-router-dom";
+import {slide as Menu} from 'react-burger-menu'
 
-import {BurgerContainer, BurgerTile, List, ListItem, SideMenuContainer, SideNav} from "./styles";
-import BurgerMenuComponent from "../BurgerMenu";
-import {StateContext} from "../../AppContext";
+import {BurgerContainer} from "./styles";
+
+import {StateContext} from "../../StateHandlers/AppContext";
 
 const SideMenuComponent = (props) => {
-    const [display, setDisplay] = useState(false);
     const {isLoggedIn} = useContext(StateContext)
 
+    function showSettings(e) {
+        e.preventDefault();
+    }
+
     return (
-        <SideMenuContainer>
-            <BurgerContainer onClick={() => setDisplay(!display)} role={"showmenu"}>
-                <BurgerMenuComponent/>
-            </BurgerContainer>
-            {display &&
-            <SideNav>
-                <List>
-                    <ListItem>
-                        <Link to={"/"}>Home</Link>
-                    </ListItem>
-                    {isLoggedIn && (
-                        <div>
-                            <ListItem>
-                                <Link to={"/favorites"}>Favorites</Link>
-                            </ListItem>
-                            <ListItem>
-                                <Link to={"/logout"}>Logout</Link>
-                            </ListItem>
-                        </div>
-                    )
-                    }
-                    { !isLoggedIn &&
-                        <ListItem>
-                            <Link to={"/login"}>Login</Link>
-                        </ListItem>
-                    }
-                </List>
-            </SideNav>
-            }
-        </SideMenuContainer>
+        <BurgerContainer>
+            <Menu>
+                <Link to={"/"}>Home</Link>
+                {isLoggedIn && (
+                    <div>
+                        <Link to={"/favorites"}>Favorites</Link>
+                        <Link to={"/logout"}>Logout</Link>
+                    </div>
+                )}
+                { !isLoggedIn &&
+                    <Link to={"/login"}>Login</Link>
+                }
+            </Menu>
+        </BurgerContainer>
     )
 }
 
