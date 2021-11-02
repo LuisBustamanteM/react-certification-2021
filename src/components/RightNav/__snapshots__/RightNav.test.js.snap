@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <Layout/> <Layout/> matches snapshot 1`] = `
+exports[`Testing <RightNav/> <RightNav/> matches snapshot 1`] = `
 <div>
   <div
     class="sc-fubCzh bFTygg"
