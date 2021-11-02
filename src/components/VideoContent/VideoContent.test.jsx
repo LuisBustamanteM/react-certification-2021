@@ -1,15 +1,24 @@
 import React from 'react'
 import VideoContent from "./VideoContent.component";
 import { render, getByTitle, getByText } from "@testing-library/react"
+import AppContext from "../../AppContext";
+import mockData from '../../MockData/youtubeResult.json'
 
+let video = mockData.items[0]
 const content = {
-    title: "To All Other Smash Mains...",
-    description: "Just a joke... please don't sweat all over me. \\n#Sora #Smash #SorainSmash #Smashbros #SorasHere #SorasFinallyHere",
-    videoId: "75JOrSEy0fc"
+    title: video.snippet.title,
+    description: video.snippet.description,
+    videoId: video.id.videoId
 }
 
 const build = () => {
-    const {container, debug} = render(<VideoContent title={content.title} description={content.description} videoId={content.videoId}/>)
+    const {container, debug} = render(
+        <AppContext>
+            <VideoContent title={content.title}
+                          description={content.description}
+                          videoId={content.videoId}/>
+        </AppContext>
+    )
 
     return {
         container,
@@ -22,7 +31,6 @@ const build = () => {
 
 describe("Testing Video Content", () =>{
     it("Shows video data and iframe with videoId on page", () => {
-
         const {videoPlayer, title, description} = build()
 
         expect(videoPlayer().src).toBe(`http://www.youtube.com/embed/${content.videoId}?enablejsapi=1`)

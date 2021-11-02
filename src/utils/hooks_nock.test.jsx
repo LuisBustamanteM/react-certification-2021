@@ -1,15 +1,14 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
-import {renderHook, act } from '@testing-library/react-hooks'
-import {getUrl, useFetch} from "./hooks";
+import { act } from '@testing-library/react'
 import nock from 'nock'
 import mockData from '../MockData/youtubeResult.json'
-
+import {fetchVideos, getUrl} from "./utils"
+const sampleIds = ["a1", "Smash bros", "ac3"]
 const mockYoutubeApi =  () => {
 
-    const scope = nock(getUrl("123", "LIST"))
-        .get('/videos')
-        .reply(200, mockData)
+    const scope = nock(getUrl(sampleIds, "ID"))
+        .get('/')
+        .reply(200, mockData.items)
         .defaultReplyHeaders({
             'access-control-allow-origin': '*',
             'access-control-allow-credentials': 'true'
@@ -20,16 +19,14 @@ const mockYoutubeApi =  () => {
 }
 
 
-describe("Testing Custom Hooks with nock", ()  => {
-    it("Updates fetch query parameter",  () => {
-        const type = "LIST"
-        const query = "Smash bros"
-        const { result } = renderHook(() => useFetch(type))
+describe("Testing utils with nock", ()  => {
 
-        act(() => {
-            result.current.setId(query)
+    it.skip("Returns a list of videos when calling fetchVideos() using Nock",  async () => {
+        await act(async () => {
+            let videos = await fetchVideos(sampleIds, "ID")
+           expect(videos).toHaveLength(mockData.items.length)
         })
 
-        expect(result.current.id).toBe(query)
+        //expect(mockYoutubeApi()).toHaveBeenCalledWith(getUrl(sampleIds, "ID"))
     })
 })

@@ -1,9 +1,13 @@
 import React, {createContext, useReducer} from 'react'
-import {BrowserRouter} from "react-router-dom";
-
 
 export function appReducer(state, action) {
     switch (action.type) {
+        case 'UPDATE_QUERY': {
+            return {
+                ...state,
+                query: action.value
+            }
+        }
         case 'TOGGLE_MODE': {
             return {
                 ...state,

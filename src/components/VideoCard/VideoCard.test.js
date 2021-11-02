@@ -1,22 +1,25 @@
 import React from 'react';
 import {render} from "@testing-library/react";
 import VideoCard from './index';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import AppContext from "../../AppContext";
+import mockData from '../../MockData/youtubeResult.json'
 
 test("<VideoCard/> matches snapshot", () => {
-    const testImage = "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/440px-SpongeBob_SquarePants_character.svg.png";
+    let video = mockData.items[0]
+    let images = video.snippet.thumbnails
 
     const component = render(
-        <Router>
-            <VideoCard
-                defaultImage={testImage}
-                mediumImage={testImage}
-                highImage={testImage}
-                title={"Testing title"}
-                description={"Lorem ipsum..."}/>
-        </Router>
+        <AppContext>
+            <Router>
+                <VideoCard
+                    defaultImage={images.default.url}
+                    mediumImage={images.default.medium}
+                    highImage={images.default.high}
+                    title={video.snippet.title}
+                    description={video.snippet.description}/>
+            </Router>
+        </AppContext>
     );
 
     expect (component.container).toMatchSnapshot();

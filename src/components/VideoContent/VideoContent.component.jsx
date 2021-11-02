@@ -3,16 +3,13 @@ import {FavoriteButton, VideoContainer} from './styles'
 import {StateContext, DispatchContext} from "../../AppContext";
 
 const VideoContentComponent = ({title, description, videoId}) => {
-    const {darkMode} = useContext(StateContext)
-    const [isFavorite, setIsFavorite] = useState(-1)
-    const {favoriteIds, isLoggedIn} = useContext(StateContext)
+    const {darkMode, favoriteIds, isLoggedIn} = useContext(StateContext)
     const dispatch = useContext(DispatchContext)
-
-    console.log(videoId)
+    const [isFavorite, setIsFavorite] = useState(favoriteIds.indexOf(videoId))
 
     useEffect(() => {
         setIsFavorite(favoriteIds.indexOf(videoId))
-    }, [favoriteIds])
+    }, [favoriteIds, videoId])
 
     function handleFavorite(){
         if (isFavorite === -1){

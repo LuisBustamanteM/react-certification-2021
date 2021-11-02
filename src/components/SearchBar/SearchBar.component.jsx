@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {SearchBarContainer, IconContainer, InputText, SearchBar} from './style';
@@ -9,15 +9,13 @@ const SearchBarComponent = (props) => {
 
     const {query} = useContext(StateContext)
     const dispatch = useContext(DispatchContext)
-    const [input, setInput] = useState(query || "");
     const history = useHistory();
 
     const getQueryParams = ({key}) => {
-        if(input !== "" && key === "Enter"){
-            dispatch({type: "UPDATE_SEARCH", value: input})
-
-            fetchVideos(input, "QUERY")
+        if(query !== "" && key === "Enter"){
+            fetchVideos(query, "QUERY")
                 .then( (items) => {
+                    console.log(items)
                     dispatch({type: "GET_VIDEOS", value: items})
                 })
                 .catch((e) => {
@@ -36,8 +34,8 @@ const SearchBarComponent = (props) => {
                 </IconContainer>
                 <InputText type="text"
                            placeholder={"Search..."}
-                           value={input}
-                           onChange={({target}) => setInput(target.value)}
+                           value={query}
+                           onChange={({target}) => dispatch({type: "UPDATE_QUERY", value: target.value})}
                            onKeyPress={(e) => getQueryParams(e)}
                           />
             </SearchBarContainer>

@@ -3,13 +3,13 @@
 exports[`<VideoCard/> matches snapshot 1`] = `
 <div>
   <li
-    class="sc-bdfBQB eBcqvF"
+    class="sc-bdfBQB bhWnnh"
   >
     <a
       href="/video/undefined"
     >
       <div
-        class="sc-gsTEea pvlbr"
+        class="sc-gsTEea cpVGqN"
       />
       <div
         class="sc-dlfnuX kyDYvr"
@@ -17,12 +17,12 @@ exports[`<VideoCard/> matches snapshot 1`] = `
         <h2
           class="sc-hKgJUU kIlOys"
         >
-          Testing title
+          FIRST IMPRESSIONS WITH SORA IN SMASH ULTIMATE!
         </h2>
         <p
           class="sc-eCstlR dObQUk"
         >
-          Lorem ipsum...
+          HERE IT IS EVERYONE! Sora is out in Super Smash Bros Ultimate, and this is my first time with the character. Lets learn him together in a variety of settings, see ...
         </p>
       </div>
     </a>

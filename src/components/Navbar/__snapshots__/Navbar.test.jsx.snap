@@ -55,6 +55,7 @@ exports[`Testing <Navbar/> <Navbar/> matches snapshot 1`] = `
           />
           <div
             class="sc-pGacB clwlSv slider"
+            role="slider"
           />
         </div>
         <label

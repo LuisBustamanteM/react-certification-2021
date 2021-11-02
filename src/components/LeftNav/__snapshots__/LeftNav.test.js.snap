@@ -3,37 +3,16 @@
 exports[`Testing <RightNav/> <RightNav/> matches snapshot 1`] = `
 <div>
   <div
-    class="sc-gKseQn dKXYcW"
+    class="sc-eCstlR jhFGSs"
   >
     <div
-      class="sc-bdfBQB dVLZuS"
+      class="sc-bdfBQB hchZau"
     >
       <div
-        class="sc-gsTEea iLqQBc"
-      >
-        <svg
-          fill="currentColor"
-          height="1em"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 448 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-          />
-        </svg>
-      </div>
-    </div>
-    <div
-      class="sc-dlfnuX dJjcdC"
-    >
-      <div
-        class="sc-hKgJUU bJyFOW"
+        class="sc-gsTEea gextng"
       >
         <div
-          class="sc-eCstlR cNusON"
+          class="sc-dlfnuX bxyajH"
         >
           <svg
             fill="currentColor"
@@ -50,10 +29,10 @@ exports[`Testing <RightNav/> <RightNav/> matches snapshot 1`] = `
           </svg>
         </div>
         <input
-          class="sc-jSgvzq hdkkNo"
+          class="sc-hKgJUU gfleLt"
           placeholder="Search..."
           type="text"
-          value=""
+          value="Wizeline"
         />
       </div>
     </div>
