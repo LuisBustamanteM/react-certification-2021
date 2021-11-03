@@ -4,13 +4,13 @@ import {StateContext, DispatchContext} from "../../StateHandlers/AppContext";
 
 const ToggleComponent = () => {
     const {darkMode} = useContext(StateContext)
-    const dispatch = useContext(DispatchContext)
+    const {toggle} = useContext(DispatchContext)
 
     return (
     <ToggleContainer>
         <ToggleSwitch >
-            <input checked={darkMode} type="checkbox" onChange={(e) => dispatch({type: "TOGGLE_MODE", value: !darkMode})} />
-            <ToggleSlider role={"slider"} className={"slider"} onClick={(e) => dispatch({type: "TOGGLE_MODE", value: !darkMode})}/>
+            <input checked={darkMode} type="checkbox" onChange={(e) => toggle(!darkMode)} />
+            <ToggleSlider role={"slider"} className={"slider"} onClick={(e) => toggle(!darkMode)}/>
         </ToggleSwitch>
         <Switch htmlFor="toggle-mode">{darkMode ? "Dark" : "Light"} Mode</Switch>
     </ToggleContainer>

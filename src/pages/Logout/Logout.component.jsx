@@ -4,11 +4,11 @@ import {DispatchContext} from "../../StateHandlers/AppContext";
 
 const LogoutComponent = (props) => {
 
-    const dispatch = useContext(DispatchContext)
+    const {logout} = useContext(DispatchContext)
     const history = useHistory();
 
     useEffect(() => {
-        dispatch({type: "LOGOUT"})
+        logout()
         history.push('/login')
     }, [])
 

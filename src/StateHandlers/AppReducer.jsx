@@ -1,3 +1,13 @@
+export const actions = {
+    updateQuery: "UPDATE_QUERY",
+    toggle: "TOGGLE_MODE",
+    getVideos: "GET_VIDEOS",
+    addFavorites: "ADD_FAVORITES",
+    removeFavorites: "REMOVE_FAVORITES",
+    login: "LOGIN",
+    logout: "LOGOUT"
+}
+
 export function appReducer(state, action) {
     switch (action.type) {
         case 'UPDATE_QUERY': {

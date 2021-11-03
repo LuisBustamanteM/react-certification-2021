@@ -10,7 +10,7 @@ const LoginComponent = (props) => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
 
-    const dispatch = useContext(DispatchContext)
+    const {login} = useContext(DispatchContext)
     const {isLoggedIn} = useContext(StateContext)
     const history = useHistory();
 
@@ -20,12 +20,12 @@ const LoginComponent = (props) => {
         }
     }, [])
 
-    async function login(e){
+    async function postLogin(e){
         e.preventDefault()
 
         let content = await fetchLogin(username, password)
         if (content.message === "SUCCESS"){
-            dispatch({type: "LOGIN", value: content.userData})
+            login(content.userData)
             setError(false)
             history.push('/')
         } else {
@@ -38,7 +38,7 @@ const LoginComponent = (props) => {
         <LoginContainer>
             <Title>Login</Title>
             <Line/>
-            <Form onSubmit={login}>
+            <Form onSubmit={postLogin}>
                 {error && <Error>Username or Password are incorrect</Error>}
                 <label htmlFor={"username"}>Username</label>
                 <Input name={"username"} type={"text"} value={username} onChange={({target}) => setUsername(target.value)}/>

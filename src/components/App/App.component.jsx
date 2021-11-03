@@ -15,12 +15,11 @@ import AppContext, {StateContext, DispatchContext} from "../../StateHandlers/App
 
 function AppContainer(props) {
     const {videos, query} = useContext(StateContext)
-    const dispatch = useContext(DispatchContext)
-
+    const {getVideos} = useContext(DispatchContext)
     if (videos && videos.length <= 0 && query !== "") {
         fetchVideos(query, "QUERY")
             .then((items) => {
-                dispatch({type: "GET_VIDEOS", value: items})
+                getVideos(items)
             })
             .catch((e) => {
                 console.log("ERROR: ", e)

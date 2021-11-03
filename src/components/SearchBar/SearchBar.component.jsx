@@ -8,15 +8,15 @@ import {fetchVideos} from "../../utils/utils";
 const SearchBarComponent = (props) => {
 
     const {query} = useContext(StateContext)
-    const dispatch = useContext(DispatchContext)
+    const {updateQuery, getVideos} = useContext(DispatchContext)
+
     const history = useHistory();
 
     const getQueryParams = ({key}) => {
         if(query !== "" && key === "Enter"){
             fetchVideos(query, "QUERY")
                 .then( (items) => {
-                    console.log(items)
-                    dispatch({type: "GET_VIDEOS", value: items})
+                    getVideos(items)
                 })
                 .catch((e) => {
                     console.log("ERROR: ", e)
@@ -35,7 +35,7 @@ const SearchBarComponent = (props) => {
                 <InputText type="text"
                            placeholder={"Search..."}
                            value={query}
-                           onChange={({target}) => dispatch({type: "UPDATE_QUERY", value: target.value})}
+                           onChange={({target}) => updateQuery(target.value)}
                            onKeyPress={(e) => getQueryParams(e)}
                           />
             </SearchBarContainer>

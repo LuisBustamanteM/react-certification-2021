@@ -4,7 +4,7 @@ import {StateContext, DispatchContext} from "../../StateHandlers/AppContext";
 
 const VideoContentComponent = ({title, description, videoId}) => {
     const {darkMode, favoriteIds, isLoggedIn} = useContext(StateContext)
-    const dispatch = useContext(DispatchContext)
+    const {addFavorites, removeFavorites} = useContext(DispatchContext)
     const [isFavorite, setIsFavorite] = useState(favoriteIds.indexOf(videoId))
 
     useEffect(() => {
@@ -13,9 +13,9 @@ const VideoContentComponent = ({title, description, videoId}) => {
 
     function handleFavorite(){
         if (isFavorite === -1){
-            dispatch({type: "ADD_FAVORITES", value: videoId})
+            addFavorites(videoId)
         } else {
-            dispatch({type: "REMOVE_FAVORITES", value: videoId})
+            removeFavorites(videoId)
         }
     }
 
