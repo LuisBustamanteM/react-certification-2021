@@ -10,25 +10,25 @@ export const actions = {
 
 export function appReducer(state, action) {
     switch (action.type) {
-        case 'UPDATE_QUERY': {
+        case actions.updateQuery: {
             return {
                 ...state,
                 query: action.value
             }
         }
-        case 'TOGGLE_MODE': {
+        case actions.toggle: {
             return {
                 ...state,
                 darkMode: action.value
             }
         }
-        case 'GET_VIDEOS': {
+        case actions.getVideos: {
             return {
                 ...state,
                 videos: action.value
             }
         }
-        case 'ADD_FAVORITES': {
+        case actions.addFavorites: {
             let storedIds = JSON.parse(window.sessionStorage.getItem('favoriteVideos')) || []
             storedIds = [...storedIds, action.value]
             window.sessionStorage.setItem("favoriteVideos", JSON.stringify(storedIds))
@@ -41,7 +41,7 @@ export function appReducer(state, action) {
                 ]
             }
         }
-        case 'REMOVE_FAVORITES': {
+        case actions.removeFavorites: {
             let storedIds = JSON.parse(window.sessionStorage.getItem('favoriteVideos')) || []
             let removedIds = storedIds.filter(id => id !== action.value)
             window.sessionStorage.setItem("favoriteVideos", JSON.stringify(removedIds))
@@ -51,7 +51,7 @@ export function appReducer(state, action) {
                 favoriteIds: removedIds
             }
         }
-        case 'LOGIN': {
+        case actions.login: {
             window.sessionStorage.setItem("isLoggedIn", "true")
             window.sessionStorage.setItem("userData", JSON.stringify(action.value))
             return {
@@ -60,7 +60,7 @@ export function appReducer(state, action) {
                 userData: action.value
             }
         }
-        case "LOGOUT": {
+        case actions.logout: {
             window.sessionStorage.removeItem("isLoggedIn")
             window.sessionStorage.removeItem("userData")
             return {

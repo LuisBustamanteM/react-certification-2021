@@ -13,11 +13,7 @@ test("<VideoCard/> matches snapshot", () => {
         <AppContext>
             <Router>
                 <VideoCard
-                    defaultImage={images.default.url}
-                    mediumImage={images.default.medium}
-                    highImage={images.default.high}
-                    title={video.snippet.title}
-                    description={video.snippet.description}/>
+                    item={video}/>
             </Router>
         </AppContext>
     );

@@ -3,19 +3,19 @@ import {VideoCardContainer, Thumbnail, Title, Paragraph, Content} from './style'
 import {Link} from 'react-router-dom'
 import {StateContext} from "../../StateHandlers/AppContext";
 
-const VideoCardComponent = (props) => {
+const VideoCardComponent = ({page, id, item}) => {
 
     const {darkMode} = useContext(StateContext)
 
     return (
         <VideoCardContainer darkMode={darkMode}>
-            <Link to={`/${props.page}/${props.id}`}>
-                <Thumbnail defaultImage={props.defaultImage}
-                           mediumImage={props.mediumImage}
-                           highImage={props.highImage}/>
+            <Link to={`/${page}/${id}`}>
+                <Thumbnail defaultImage={item.snippet.thumbnails.default.url}
+                           mediumImage={item.snippet.thumbnails.medium.url}
+                           highImage={item.snippet.thumbnails.high.url}/>
                 <Content>
-                    <Title>{props.title}</Title>
-                    <Paragraph>{props.description}</Paragraph>
+                    <Title>{item.snippet.title.title}</Title>
+                    <Paragraph>{item.snippet.description}</Paragraph>
                 </Content>
             </Link>
         </VideoCardContainer>
