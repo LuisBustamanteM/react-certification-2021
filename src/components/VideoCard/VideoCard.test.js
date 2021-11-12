@@ -1,0 +1,22 @@
+import React from 'react';
+import {render} from "@testing-library/react";
+import VideoCard from './index';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppContext from "../../StateHandlers/AppContext";
+import mockData from '../../MockData/youtubeResult.json'
+
+test("<VideoCard/> matches snapshot", () => {
+    let video = mockData.items[0]
+    let images = video.snippet.thumbnails
+
+    const component = render(
+        <AppContext>
+            <Router>
+                <VideoCard
+                    item={video}/>
+            </Router>
+        </AppContext>
+    );
+
+    expect (component.container).toMatchSnapshot();
+});

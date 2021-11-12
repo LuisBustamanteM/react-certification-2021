@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#Comments
+todo.md
+.env
+src/config.json
+server/node_modules

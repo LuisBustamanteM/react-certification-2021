@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoCard/> matches snapshot 1`] = `
+<div>
+  <li
+    class="sc-bdfBQB bhWnnh"
+  >
+    <a
+      href="/undefined/undefined"
+    >
+      <div
+        class="sc-gsTEea dwPKuY"
+      />
+      <div
+        class="sc-dlfnuX kyDYvr"
+      >
+        <h2
+          class="sc-hKgJUU kIlOys"
+        />
+        <p
+          class="sc-eCstlR dObQUk"
+        >
+          HERE IT IS EVERYONE! Sora is out in Super Smash Bros Ultimate, and this is my first time with the character. Lets learn him together in a variety of settings, see ...
+        </p>
+      </div>
+    </a>
+  </li>
+</div>
+`;

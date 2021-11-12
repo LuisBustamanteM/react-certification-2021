@@ -1,38 +1,18 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useContext, useRef} from 'react';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import CardGrid from '../../components/CardGrid';
+import {HomeContainer, Title} from './style';
+import {StateContext} from "../../StateHandlers/AppContext";
 
-function HomePage() {
-  const history = useHistory();
+function HomePage(props) {
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  const {darkMode, videos} = useContext(StateContext)
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <HomeContainer darkMode={darkMode} className="homepage" ref={sectionRef}>
+      <Title darkMode={darkMode}>Welcome To The Challenge!</Title>
+      <CardGrid items={videos} errorMessage={"No videos to display, Try Reloading."}/>
+    </HomeContainer>
   );
 }
 
